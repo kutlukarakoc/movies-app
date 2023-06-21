@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: #141414;
+}
+
+.swal-close-button, .swal-close-button:focus {
+  box-shadow: none !important;
+  color: #E5E5E5 !important;
+  outline: none;
+  font-size: 2em;
+}
