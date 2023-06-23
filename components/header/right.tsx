@@ -16,7 +16,7 @@ const Right: React.FC = () => {
       <button type='button' className='w-5 h-5 outline-none border-none sm:w-6 sm:h-6'>
         <Image src={search} alt='movies-app' className='h-full max-w-full block' onClick={handleSwal} />
       </button>
-      <div className='w-7 h-7 sm:w-8 sm:h-8 bg-midgray rounded-full cursor-pointer'></div>
+      <div className='w-7 h-7 sm:w-8 sm:h-8 bg-zambezi rounded-full cursor-pointer'></div>
     </div>
   )
 }
