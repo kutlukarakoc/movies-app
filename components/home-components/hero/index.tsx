@@ -1,45 +1,28 @@
-'use client'
-
-import { useQuery } from '@tanstack/react-query'
-import { axiosGet } from '@/public/utils/fetch'
+import Image from 'next/image'
+import { heroMockup } from '@/public/constants/home/mockup'
+import Link from 'next/link'
 
 const Hero: React.FC = () => {
-
-  const { isLoading, error, data, isSuccess, status, } = useQuery({
-    queryKey: ['topRatedMovies'],
-    queryFn: () => axiosGet('https://api.themoviedb.org/3/movie/top_rated'),
-    refetchOnWindowFocus: false,
-
-  })
-
-  if (isLoading) return <div>LOADING...</div>
-
-  if (error) return <div>ERRRORRRR</div>
-
-
-
-  if (data) {
-    const { results } = data.data
-    const random = Math.floor(Math.random() * 21)
-    return (
-      <div className='w-full h-full max-h-[850px] relative'>
-        <img src={`https://image.tmdb.org/t/p/original${results[random].backdrop_path}`} alt={results[random].title} className='w-full h-full block' />
-        <div className='absolute z-10 bottom-48 left-14 max-w-[650px]'>
-          <h2 className='text-3xl text-white font-semibold mb-3'>{results[random].title}</h2>
-          <h3 className='text-2xl text-white mb-3 flex items-center gap-2'>
-            <div className='bg-accent w-8 h-8 text-xs leading-3 flex justify-center items-center text-center'>Top<br/>20</div>
-            Number {random} in the world today
-          </h3>
-          <h4 className='text-2xl text-white mb-6'>{results[random].overview}</h4>
-          <div className='flex gap-4'>
-            <button type='button' className='bg-secondary text-primary text-xl w-44 h-16 text-center'>Play</button>
-            <button type='button' className='bg-secondary text-primary text-xl w-44 h-16 text-center'>More İnformation</button>
-          </div>
-        </div>
+  return (
+    <div className='w-full h-full max-h-[450px] md:max-h-[675px] relative'>
+      <Image src={heroMockup.backdropImage} alt={heroMockup.title} className='w-full h-full block object-cover md:object-fill' fill quality={100} />
+      <div className='w-full absolute z-10 text-center md:text-left bottom-5 md:bottom-20 left-1/2 -translate-x-1/2 md:-translate-x-0 md:left-14 max-w-[85%] md:max-w-screen-md'>
+        <h1 className='text-secondary text-xl md:text-3xl font-semibold mb-3'>
+          {heroMockup.title}
+        </h1>
+        <h4 className='text-secondary text-sm md:text-lg mb-3 flex justify-center md:justify-start items-center gap-2'>
+          <p className='bg-accent w-8 h-8 text-xs leading-3 flex justify-center items-center text-center'>Top<br />20</p>
+          Number {heroMockup.number} in the world today
+        </h4>
+        <h4 className='text-secondary text-sm md:text-lg mb-6 line-clamp-4 md:line-clamp-5'>
+          {heroMockup.overview}
+        </h4>
+        <Link href='/' className='bg-accent text-secondary flex items-center justify-center text-sm md:text-lg w-36 md:w-44 h-10 md:h-14 rounded-md hover:bg-accent-light'>
+          More İnformation
+        </Link>
       </div>
-    )
-  }
-  return null
+    </div>
+  )
 }
 
 export default Hero
