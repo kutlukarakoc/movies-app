@@ -10,13 +10,13 @@ module.exports = {
       colors: {
         'primary': '#141416',
         'secondary': '#E5E5E5',
-        'accent': '#FEC603',
+        'accent': '#B9090B',
         'nero': '#1D1D1D',
         'zambezi': '#5B5B5B',
 
       },
       boxShadow: {
-        'accentshd': '2px 2px 23px -10px #FEC603 ;'
+        'accentshd': '2px 2px 23px -10px #B9090B ;'
       },
       fontSize: {
         'xxs': '11px',
