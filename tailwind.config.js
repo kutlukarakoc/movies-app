@@ -19,6 +19,7 @@ module.exports = {
         'accentshd': '2px 2px 23px -10px #FEC603 ;'
       },
       fontSize: {
+        'xxs': '11px',
         'xs': '13px',
         'sm': '14px',
         'md': '16px',
