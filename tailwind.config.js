@@ -10,23 +10,24 @@ module.exports = {
       colors: {
         'primary': '#141416',
         'secondary': '#E5E5E5',
-        'accent': '#B9090B',
+        'accent': '#960000',
+        'accent-light': '#B9090B',
         'nero': '#1D1D1D',
         'zambezi': '#5B5B5B',
 
       },
       boxShadow: {
-        'accentshd': '2px 2px 23px -10px #B9090B ;'
+        'accentshd': '2px 2px 23px -10px #960000 ;'
       },
       fontSize: {
-        'xxs': '11px',
-        'xs': '13px',
-        'sm': '14px',
-        'md': '16px',
-        'lg': '18px',
-        'xl': '26px',
-        '2xl': '42px',
-        '3xl': '56px',
+        'xxs': '11px', // span
+        'xs': '13px',  // p
+        'sm': '14px',  // h6
+        'md': '16px',  // h5
+        'lg': '18px',  // h4
+        'xl': '26px',  // h3
+        '2xl': '42px', // h2
+        '3xl': '56px', // h1
       }
     }
   },
