@@ -14,3 +14,7 @@ html, body {
   outline: none;
   font-size: 2em;
 }
+
+.section-container {
+  @apply container mx-auto px-4 sm:px-0 mb-28;
+}
