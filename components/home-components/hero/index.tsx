@@ -25,8 +25,8 @@ const Hero: React.FC = () => {
       <div className='w-full h-full max-h-[850px] relative'>
         <img src={`https://image.tmdb.org/t/p/original${results[random].backdrop_path}`} alt={results[random].title} className='w-full h-full block' />
         <div className='absolute z-10 bottom-48 left-14 max-w-[650px]'>
-          <h2 className='text-4xl text-white font-semibold mb-3'>{results[random].title}</h2>
-          <h3 className='text-3xl text-white mb-3 flex items-center gap-2'>
+          <h2 className='text-3xl text-white font-semibold mb-3'>{results[random].title}</h2>
+          <h3 className='text-2xl text-white mb-3 flex items-center gap-2'>
             <div className='bg-accent w-8 h-8 text-xs leading-3 flex justify-center items-center text-center'>Top<br/>20</div>
             Number {random} in the world today
           </h3>

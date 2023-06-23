@@ -8,14 +8,24 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary': '#141414',
+        'primary': '#141416',
         'secondary': '#E5E5E5',
-        'accent': '#B9090B',
-        'midgray': '#6D6D6EB2'
-      },
+        'accent': '#FEC603',
+        'nero': '#1D1D1D',
+        'zambezi': '#5B5B5B',
 
+      },
       boxShadow: {
-        'accentshd': '2px 2px 23px -10px #B9090B ;'
+        'accentshd': '2px 2px 23px -10px #FEC603 ;'
+      },
+      fontSize: {
+        'xs': '13px',
+        'sm': '14px',
+        'md': '16px',
+        'lg': '18px',
+        'xl': '26px',
+        '2xl': '42px',
+        '3xl': '56px',
       }
     }
   },
