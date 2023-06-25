@@ -1,18 +1,18 @@
-import Hero from '@/components/home-components/hero'
-import Brands from '@/components/home-components/brands'
-import MovieSlide from '@/components/home-components/slides/movie'
-import SeriesSlide from '@/components/home-components/slides/series'
-import WhyChoose from '@/components/home-components/why-choose'
+import Hero from '@/components/page-components/home/hero'
+import Brands from '@/components/page-components/home/brands'
+import MovieSlide from '@/components/page-components/home/slides/movies'
+import SeriesSlide from '@/components/page-components/home/slides/series'
+import WhyChoose from '@/components/page-components/home/why-choose'
 
 export default function Home() {
   return (
     <>
       <Hero />
       <Brands />
-      <MovieSlide url='https://api.themoviedb.org/3/movie/upcoming' reqKey='upcomingMovies' title='Upcoming Movies' />
-      <MovieSlide url='https://api.themoviedb.org/3/movie/popular' reqKey='popularMovies' title='Popular Movies' />
-      <SeriesSlide url='https://api.themoviedb.org/3/tv/on_the_air' reqKey='upcomingTvSeries' title='Upcoming Tv Series' className='mb-10' />
-      <SeriesSlide url='https://api.themoviedb.org/3/tv/top_rated' reqKey='topRatedTvSeries' title='Top Rated Tv Series' className='mb-24' />
+      <MovieSlide path='/movie/upcoming`' reqKey='upcomingMovies' title='Upcoming Movies' />
+      <MovieSlide path='/movie/popular' reqKey='popularMovies' title='Popular Movies' />
+      <SeriesSlide path='/tv/on_the_air' reqKey='upcomingTvSeries' title='Upcoming Tv Series' className='mb-10' />
+      <SeriesSlide path='/tv/top_rated' reqKey='topRatedTvSeries' title='Top Rated Tv Series' className='mb-24' />
       <WhyChoose />
     </>
   )
