@@ -50,7 +50,7 @@ const MovieSlide: React.FC<MovieSlide> = ({ url, reqKey, title }) => {
     return (
       <section className='container mx-auto px-4 sm:px-0 mb-10'>
         <div className='flex justify-between items-center mb-3'>
-          <h4 className='text-xl text-secondary'>{title}</h4>
+          <h3 className='text-xl text-secondary'>{title}</h3>
           <Link href='/' className='text-sm text-accent hover:text-accent-light'>See More</Link>
         </div>
         <Swiper
