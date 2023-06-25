@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const Hero: React.FC = () => {
   return (
-    <section className='w-full h-full max-h-[450px] md:max-h-[625px] lg:max-h-[725px] relative mb-28'>
+    <section className='w-full h-[450px] md:h-[625px] lg:h-[725px] relative mb-28'>
       <Image src={heroMockup.backdropImage} alt={heroMockup.title} className='w-full h-full block object-cover' fill quality={100} />
       <div className='w-full absolute z-10 text-center md:text-left bottom-5 md:bottom-20 left-1/2 -translate-x-1/2 md:-translate-x-0 md:left-14 max-w-[85%] md:max-w-[75%] lg:max-w-screen-md'>
         <h1 className='text-secondary text-xl md:text-2xl lg:text-3xl font-semibold mb-3'>
