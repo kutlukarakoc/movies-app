@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { useQuery } from '@tanstack/react-query'
 import { axiosGet } from '@/public/utils/fetch'
 
-type TvSeriesData = {
+type SerieData = {
   backdrop_path?: string
   first_air_date: string
   genre_ids: number[]
@@ -23,14 +23,14 @@ type TvSeriesData = {
   vote_count: number
 }
 
-interface TvSeriesSlide {
+interface SeriesSlide {
   url: string
   reqKey: string
   title: string
   className: string
 }
 
-const TvSeriesSlide: React.FC<TvSeriesSlide> = ({ url, reqKey, title, className }) => {
+const SeriesSlide: React.FC<SeriesSlide> = ({ url, reqKey, title, className }) => {
 
   const { isLoading, error, data } = useQuery({
     queryKey: [reqKey],
@@ -61,25 +61,26 @@ const TvSeriesSlide: React.FC<TvSeriesSlide> = ({ url, reqKey, title, className 
           }}
           className={`${reqKey} h-[425px]`}
         >
-          {data.slice(0, 10).map((tvSerie: TvSeriesData) => {
-            if (tvSerie.poster_path) {
+          {data.slice(0, 10).map((serie: SerieData) => {
+            if (serie.poster_path) {
               return (
-                <SwiperSlide key={tvSerie.id} style={{ width: '250px', height: '425px' }}>
+                <SwiperSlide key={serie.id} style={{ width: '250px', height: '425px' }}>
                   <div>
                     <Link href='/'>
                       <Image
-                        src={`https://image.tmdb.org/t/p/w500${tvSerie.poster_path}`}
-                        alt={tvSerie.name}
+                        src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
+                        alt={serie.name}
                         width={250}
                         height={375}
                         className='rounded-sm'
+                        unoptimized
                       />
                     </Link>
                     <div className='flex justify-between items-end -mb-1'>
-                      <h5 className='text-md text-secondary mt-1 truncate'>{tvSerie.name}</h5>
+                      <h5 className='text-md text-secondary mt-1 truncate'>{serie.name}</h5>
                       <div className='flex items-center gap-1'>
                         <p className='bg-accent text-xxs font-bold h-5 w-11 grid place-items-center text-center'>TMDB</p>
-                        <p className='text-xs text-secondary'>{tvSerie.vote_average.toFixed(1)}</p>
+                        <p className='text-xs text-secondary'>{serie.vote_average.toFixed(1)}</p>
                       </div>
                     </div>
                   </div>
@@ -94,4 +95,4 @@ const TvSeriesSlide: React.FC<TvSeriesSlide> = ({ url, reqKey, title, className 
   return null
 }
 
-export default TvSeriesSlide
+export default SeriesSlide
