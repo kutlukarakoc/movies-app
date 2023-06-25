@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { heroMockup } from '@/public/constants/home/mockup'
+import { heroMockup } from '@/public/constants/home/hero'
 import Link from 'next/link'
 
 const Hero: React.FC = () => {
@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
         <h4 className='text-secondary text-sm md:text-md lg:text-lg mb-6 line-clamp-4 md:line-clamp-5'>
           {heroMockup.overview}
         </h4>
-        <Link href='/' className='bg-accent text-secondary flex items-center justify-center text-sm md:text-lg w-36 md:w-44 h-10 md:h-14 rounded-md hover:bg-accent-light'>
+        <Link href={`/movie/${heroMockup.id}`} className='bg-accent text-secondary flex items-center justify-center text-sm md:text-lg w-36 md:w-44 h-10 md:h-14 rounded-md hover:bg-accent-light'>
           More İnformation
         </Link>
       </div>
