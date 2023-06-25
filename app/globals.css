@@ -19,12 +19,12 @@ body {
   font-size: 2em;
 }
 
-.main {
+.main-layout{
   min-height: calc(100% - 80px - 272px);
 }
 
 @media screen and (max-width: 640px) {
-  .main {
+  .main-layout{
     min-height: calc(100% - 80px - 390px);
   }
 }

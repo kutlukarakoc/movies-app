@@ -16,7 +16,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           <Header />
-          <main className='main text-secondary'>
+          <main className='main-layout text-secondary'>
             {children}
           </main>
           <Footer />
