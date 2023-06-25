@@ -66,7 +66,7 @@ const SeriesSlide: React.FC<SeriesSlide> = ({ url, reqKey, title, className }) =
               return (
                 <SwiperSlide key={serie.id} style={{ width: '250px', height: '425px' }}>
                   <div>
-                    <Link href='/'>
+                  <Link href={`/serie/${serie.id}`}>
                       <Image
                         src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
                         alt={serie.name}
