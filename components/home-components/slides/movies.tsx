@@ -66,13 +66,14 @@ const MovieSlide: React.FC<MovieSlide> = ({ url, reqKey, title }) => {
               return (
                 <SwiperSlide key={movie.id} style={{ width: '250px', height: '425px' }}>
                   <div>
-                    <Link href='/'>
+                    <Link href={`/movie/${movie.id}`}>
                       <Image
                         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                         alt={movie.title}
                         width={250}
                         height={375}
                         className='rounded-sm'
+                        unoptimized
                       />
                     </Link>
                     <div className='flex justify-between items-end -mb-1'>
