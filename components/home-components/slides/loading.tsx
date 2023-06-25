@@ -1,4 +1,4 @@
-const UpcomingMoviesLoading: React.FC = () => {
+const SlideLoading: React.FC = () => {
   return (
     <section className='section-container animate-pulse'>
       <div className='flex justify-between items-center mb-4'>
@@ -16,4 +16,4 @@ const UpcomingMoviesLoading: React.FC = () => {
   )
 }
 
-export default UpcomingMoviesLoading
+export default SlideLoading
