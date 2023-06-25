@@ -5,8 +5,8 @@ const Pages: React.FC = () => {
     <div className='h-full flex-1 items-center hidden sm:flex sm:order-2'>
     <div className='flex items-center gap-5 text-secondary text-sm font-medium'>
       <Link href='/'>Home</Link>
-      <Link href='/'>Movies</Link>
-      <Link href='/'>New And Populer</Link>
+      <Link href='/movies'>Movies</Link>
+      <Link href='/'>Series</Link>
       <Link href='/'>My List</Link>
     </div>
   </div>

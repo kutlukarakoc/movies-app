@@ -7,7 +7,7 @@ export const contents = [
       },
       {
         title: 'Movies',
-        path: '/'
+        path: '/movies'
       },
       {
         title: 'Series',
