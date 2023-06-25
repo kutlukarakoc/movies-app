@@ -25,17 +25,17 @@ type MovieData = {
 }
 
 interface MovieSlide {
-  url: string
+  path: string
   reqKey: string
   title: string
 }
 
-const MovieSlide: React.FC<MovieSlide> = ({ url, reqKey, title }) => {
+const MovieSlide: React.FC<MovieSlide> = ({ path, reqKey, title }) => {
 
   const { isLoading, error, data } = useQuery({
     queryKey: [reqKey],
     queryFn: async () => {
-      const { data } = await axiosGet(url)
+      const { data } = await axiosGet(path)
       const { results } = data
       return results
     },

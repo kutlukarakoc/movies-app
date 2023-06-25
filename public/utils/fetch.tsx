@@ -1,10 +1,10 @@
 import axios from 'axios'
 
-export const axiosGet = async (url: string, page: number = 1, method: string = 'GET') => {
+export const axiosGet = (path: string, page: number = 1, method: string = 'GET') => {
 
   const options = {
     method,
-    url,
+    url: `${process.env.NEXT_PUBLIC_BASE_URL}${path}`,
     params: { language: 'en-US', page },
     headers: {
       accept: 'application/json',

@@ -24,18 +24,18 @@ type SerieData = {
 }
 
 interface SeriesSlide {
-  url: string
+  path: string
   reqKey: string
   title: string
   className: string
 }
 
-const SeriesSlide: React.FC<SeriesSlide> = ({ url, reqKey, title, className }) => {
+const SeriesSlide: React.FC<SeriesSlide> = ({ path, reqKey, title, className }) => {
 
   const { isLoading, error, data } = useQuery({
     queryKey: [reqKey],
     queryFn: async () => {
-      const { data } = await axiosGet(url)
+      const { data } = await axiosGet(path)
       const { results } = data
       return results
     },
