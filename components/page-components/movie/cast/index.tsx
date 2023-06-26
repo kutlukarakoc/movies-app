@@ -23,8 +23,6 @@ const Cast: React.FC<{ movieId: string }> = ({ movieId }) => {
     refetchOnWindowFocus: false
   })
 
-  console.log('data', data)
-
   if (isLoading) {
     return <CastLoading />
   }
