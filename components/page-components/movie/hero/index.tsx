@@ -1,20 +1,27 @@
+'use client'
+
+import HeroLoading from './loading'
 import Image from 'next/image'
 import Link from 'next/link'
 import { HeartIcon } from '@heroicons/react/24/outline'
 import { SearchMovieById } from '@/types/searchMovieById'
+import { useQuery } from '@tanstack/react-query'
+import { axiosGet } from '@/public/utils/fetch'
+import { AxiosResponse } from 'axios'
 
-interface Hero {
-  data: SearchMovieById,
-  loading: boolean,
-  error: Error
-}
+const Hero: React.FC<{ movieId: string }> = ({ movieId }) => {
 
-const Hero: React.FC<Hero> = ({ data, loading, error }) => {
+  const { isLoading, error, data } = useQuery({
+    queryKey: [`movie_${movieId}`],
+    queryFn: async () => {
+      const { data }: AxiosResponse<SearchMovieById> = await axiosGet(`/movie/${movieId}`)
+      return data
+    },
+    refetchOnWindowFocus: false
+  })
 
-  console.log('data', data)
-
-  if (loading) {
-    return <div>Loading...</div>
+  if (isLoading) {
+    return <HeroLoading />
   }
 
   if (!error && data) {
