@@ -2,17 +2,26 @@
 import Menu from './menu'
 import { Bars3Icon } from '@heroicons/react/24/outline'
 import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 const Mobile = () => {
 
   const [showMenu, setShowMenu] = useState<boolean>(false)
   const [transform, setTransform] = useState<string>('-translate-x-[400px]')
 
+  const pathname = usePathname()
+
   useEffect(() => {
     showMenu ? setTransform('translate-x-0') : setTransform('-translate-x-[400px]')
 
     return () => setTransform('translate-x-0')
   }, [showMenu])
+
+  useEffect(() => {
+    setShowMenu(false)
+
+    return () => setShowMenu(false)
+  }, [pathname])
 
   return (
     <>
