@@ -52,7 +52,7 @@ const Cast: React.FC<{ movieId: string }> = ({ movieId }) => {
                   />
                 </Link>
                 <h6 className='text-sm mt-2 text-center'>{person.name}</h6>
-                <p className='text-xs text-center'>{person.character}</p>
+                <p className='text-zambezi text-xs text-center'>{person.character}</p>
             </SwiperSlide>
           ))}
         </Swiper>
