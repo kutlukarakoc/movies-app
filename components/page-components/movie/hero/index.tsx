@@ -1,8 +1,8 @@
 'use client'
 
 import HeroLoading from './loading'
+import Genres from '../genres'
 import Image from 'next/image'
-import Link from 'next/link'
 import { HeartIcon } from '@heroicons/react/24/outline'
 import { SearchMovieById } from '@/types/searchMovieById'
 import { useQuery } from '@tanstack/react-query'
@@ -46,10 +46,9 @@ const Hero: React.FC<{ movieId: string }> = ({ movieId }) => {
             {data.overview}
           </h4>
           <h6 className='mb-3 text-sm'>{data.status} : {data.release_date}</h6>
-          <div className='flex items-center gap-4 mb-3'>
-            <Link href='/'>Genre1</Link>
-          </div>
+          <Genres genres={data.genres} />
         </div>
+
       </section>
     )
   }
