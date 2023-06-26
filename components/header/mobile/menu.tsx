@@ -10,12 +10,12 @@ interface IMenu {
 
 const Menu: React.FC<IMenu> = ({ transform, setShowMenu }) => {
   return (
-    <div className={`absolute left-0 top-0 w-8/12 max-w-sm py-6 bg-primary text-secondary text-sm font-medium shadow-accentshd rounded-b-lg transition-transform sm:hidden ${transform}`}>
+    <div className={`absolute z-50 left-0 top-0 w-8/12 max-w-sm py-6 bg-primary text-secondary text-sm font-medium shadow-accentshd rounded-ee-lg transition-transform sm:hidden ${transform}`}>
       <div className='flex flex-col justify-center items-start gap-5 flex-1 h-full py-16 px-10'>
         <Link href='/'>Home</Link>
-        <Link href='/'>Movies</Link>
-        <Link href='/'>New And Populer</Link>
-        <Link href='/'>My List</Link>
+        <Link href='/movies'>Movies</Link>
+        <Link href='/series'>Series</Link>
+        <Link href='/mylist'>My List</Link>
       </div>
       <div className='w-full flex justify-center'>
         <Logo />
