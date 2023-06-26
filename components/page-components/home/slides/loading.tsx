@@ -7,10 +7,9 @@ const SlideLoading: React.FC = () => {
         <div className='w-16 h-4 rounded-md bg-zambezi'></div>
       </div>
       <div className="overflow-hidden flex gap-5">
-        <span className='flex-shrink-0 w-[240px] h-[400px] rounded-md bg-zambezi'></span>
-        <span className='flex-shrink-0 w-[240px] h-[400px] rounded-md bg-zambezi'></span>
-        <span className='flex-shrink-0 w-[240px] h-[400px] rounded-md bg-zambezi'></span>
-        <span className='flex-shrink-0 w-[240px] h-[400px] rounded-md bg-zambezi'></span>
+        {Array.from({ length: 5 }).map((_, index: number) => (
+          <span key={index} className='flex-shrink-0 w-[240px] h-[400px] rounded-md bg-zambezi'></span>
+        ))}
       </div>
     </section>
   )
