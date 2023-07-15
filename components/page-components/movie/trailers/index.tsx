@@ -21,7 +21,6 @@ const Trailers: React.FC<{ movieId: string }> = ({ movieId }) => {
     refetchOnWindowFocus: false
   })
 
-
   if (isLoading) {
     return <TrailersLoading />
   }
@@ -41,11 +40,13 @@ const Trailers: React.FC<{ movieId: string }> = ({ movieId }) => {
           ))}
         </div>
         {
-          data.length > trailersSlice &&
-          <button type='button' className='border-none border-0 outline-none underline mt-5' onClick={() => setTrailersSlice(prev => prev + 4)}>
-            See More
-          </button>
-        }
+          data.length > trailersSlice && (
+            <div className='mt-8 flex justify-center'>
+              <button type='button' className='underline' onClick={() => setTrailersSlice(prev => prev + 4)}>
+                See More Trailers
+              </button>
+            </div>
+          )}
       </section>
     )
   }
