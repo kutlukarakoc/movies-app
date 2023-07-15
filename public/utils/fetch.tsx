@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const axiosGet = (path: string, page: number = 1, method: string = 'GET') => {
+export const axiosGet = (path: string, page: string = '1', method: string = 'GET') => {
 
   const options = {
     method,
