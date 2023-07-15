@@ -6,37 +6,22 @@ import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useQuery } from '@tanstack/react-query'
 import { axiosGet } from '@/public/utils/fetch'
-
-type MovieData = {
-  adult: boolean
-  backdrop_path: string
-  genre_ids: number[]
-  id: number
-  original_language: string
-  original_title: string
-  overview: string
-  popularity: number
-  poster_path: string
-  release_date: string
-  title: string
-  video: boolean
-  vote_average: number
-  vote_count: number
-}
+import { Movie } from '@/types/movie'
 
 interface MovieSlide {
   path: string
   reqKey: string
   title: string
+  referralPath: string
 }
 
-const MovieSlide: React.FC<MovieSlide> = ({ path, reqKey, title }) => {
+const MovieSlide: React.FC<MovieSlide> = ({ path, reqKey, title, referralPath }) => {
 
   const { isLoading, error, data } = useQuery({
     queryKey: [reqKey],
     queryFn: async () => {
       const { data } = await axiosGet(path)
-      const { results } = data
+      const results: Movie[] = data.results
       return results
     },
     refetchOnWindowFocus: false
@@ -51,7 +36,7 @@ const MovieSlide: React.FC<MovieSlide> = ({ path, reqKey, title }) => {
       <section className='container mx-auto px-4 sm:px-0 mb-10'>
         <div className='flex justify-between items-center mb-3'>
           <h3 className='text-xl text-secondary'>{title}</h3>
-          <Link href='/' className='text-sm text-accent hover:text-accent-light'>See More</Link>
+          <Link href={referralPath + '?page=1'} className='text-sm text-accent hover:text-accent-light'>See More</Link>
         </div>
         <Swiper
           slidesPerView={'auto'}
@@ -61,7 +46,7 @@ const MovieSlide: React.FC<MovieSlide> = ({ path, reqKey, title }) => {
           }}
           className={`${reqKey} h-[425px]`}
         >
-          {data.slice(0, 10).map((movie: MovieData) => {
+          {data.slice(0, 10).map((movie: Movie) => {
             if (movie.poster_path) {
               return (
                 <SwiperSlide key={movie.id} style={{ width: '250px', height: '425px' }}>
