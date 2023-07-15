@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <Hero />
       <Brands />
-      <MovieSlide path='/movie/upcoming`' reqKey='upcomingMovies' title='Upcoming Movies' />
+      <MovieSlide path='/movie/upcoming' reqKey='upcomingMovies' title='Upcoming Movies' />
       <MovieSlide path='/movie/popular' reqKey='popularMovies' title='Popular Movies' />
       <SeriesSlide path='/tv/on_the_air' reqKey='upcomingTvSeries' title='Upcoming Tv Series' className='mb-10' />
       <SeriesSlide path='/tv/top_rated' reqKey='topRatedTvSeries' title='Top Rated Tv Series' className='mb-24' />
