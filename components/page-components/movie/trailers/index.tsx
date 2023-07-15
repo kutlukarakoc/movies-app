@@ -5,8 +5,11 @@ import { useQuery } from '@tanstack/react-query'
 import { axiosGet } from '@/public/utils/fetch'
 import { TrailerData } from '@/types/movieTrailers'
 import { AxiosResponse } from 'axios'
+import { useState } from 'react'
 
 const Trailers: React.FC<{ movieId: string }> = ({ movieId }) => {
+
+  const [trailersSlice, setTrailersSlice] = useState<number>(4)
 
   const { isLoading, error, data } = useQuery({
     queryKey: [`trailers_${movieId}`],
@@ -18,6 +21,7 @@ const Trailers: React.FC<{ movieId: string }> = ({ movieId }) => {
     refetchOnWindowFocus: false
   })
 
+
   if (isLoading) {
     return <TrailersLoading />
   }
@@ -27,7 +31,7 @@ const Trailers: React.FC<{ movieId: string }> = ({ movieId }) => {
       <section className='section-container'>
         <h3 className='text-xl mb-5'>{data.length} Videos</h3>
         <div className='grid gap-y-8 gap-x-6 justify-between' style={{ gridTemplateColumns: 'repeat(auto-fill,minmax(20rem,1fr))' }}>
-          {data?.map(trailer => (
+          {data?.slice(0, trailersSlice).map(trailer => (
             <div className='aspect-video w-full' key={trailer.id}>
               <iframe src={`https://www.youtube.com/embed/${trailer.key}?rel=0autohide=1&showinfo=0`} width='100%' height='100%' frameBorder='0' allowFullScreen></iframe>
               <h5 className='text-secondary text-md mt-2 truncate'>{trailer.name}</h5>
@@ -36,7 +40,12 @@ const Trailers: React.FC<{ movieId: string }> = ({ movieId }) => {
             </div>
           ))}
         </div>
-
+        {
+          data.length > trailersSlice &&
+          <button type='button' className='border-none border-0 outline-none underline mt-5' onClick={() => setTrailersSlice(prev => prev + 4)}>
+            See More
+          </button>
+        }
       </section>
     )
   }
