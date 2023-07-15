@@ -1,5 +1,6 @@
 'use client'
 
+import ReviewsLoading from './loading'
 import Image from 'next/image'
 import ReadMore from './readMore'
 import { UserIcon } from '@heroicons/react/24/outline'
@@ -23,7 +24,7 @@ const Reviews: React.FC<{ movieId: string }> = ({ movieId }) => {
   })
 
   if (isLoading) {
-    return <p>Loading...</p>
+    return <ReviewsLoading />
   }
 
   if (!error && data) {
@@ -43,7 +44,7 @@ const Reviews: React.FC<{ movieId: string }> = ({ movieId }) => {
                   }
                 </div>
                 <div className='bg-nero p-3 w-[550px] min-h-[120px] rounded-md'>
-                  <div className='flex items-center justify-between mb-4'>
+                  <div className='flex items-center justify-between gap-4 mb-4'>
                     <p className='text-xs'>@{review.author}</p>
                     <span className='text-xxs'>{review.created_at.split('T')[0]}</span>
                   </div>
