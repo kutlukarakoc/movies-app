@@ -38,22 +38,26 @@ const Cast: React.FC<{ movieId: string }> = ({ movieId }) => {
             clickable: true,
           }}
           className={`castAndCrew_${movieId}`}
-          style={{marginLeft:'-8px'}}
+          style={{ marginLeft: '-8px' }}
         >
           {data.map((person: CastProps) => (
-            <SwiperSlide key={person.id} style={{width:'160px', height:'208px', display:'flex', flexDirection:'column', alignItems:'center'}}>
-                <Link href={`/person/${person.cast_id}`} className='block relative w-36 h-36'>
-                  <Image
-                    src={`https://image.tmdb.org/t/p/w500${person.profile_path}`}
-                    alt={person.name}
-                    fill
-                    className='rounded-full object-cover bg-zambezi'
-                    unoptimized
-                  />
-                </Link>
-                <h6 className='text-sm mt-2 text-center'>{person.name}</h6>
-                <p className='text-zambezi text-xs text-center'>{person.character}</p>
-            </SwiperSlide>
+            <>
+              {person.profile_path &&
+                <SwiperSlide key={person.id} style={{ width: '160px', height: '208px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <Link href={`/person/${person.cast_id}`} className='block relative w-36 h-36'>
+                    <Image
+                      src={`https://image.tmdb.org/t/p/w500${person.profile_path}`}
+                      alt={person.name}
+                      fill
+                      className='rounded-full object-cover bg-zambezi'
+                      unoptimized
+                    />
+                  </Link>
+                  <h6 className='text-sm mt-2 text-center'>{person.name}</h6>
+                  <p className='text-zambezi text-xs text-center'>{person.character}</p>
+                </SwiperSlide>
+              }
+            </>
           ))}
         </Swiper>
       </section>
