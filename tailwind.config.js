@@ -14,6 +14,7 @@ module.exports = {
         'accent-light': '#B9090B',
         'nero': '#1D1D1D',
         'zambezi': '#5B5B5B',
+        'overlay': 'rgba(0, 0, 0, 0.6)'
 
       },
       boxShadow: {
