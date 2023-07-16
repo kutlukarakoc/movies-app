@@ -1,5 +1,6 @@
 'use client'
 
+import MoviesWithSlugLoading from './loading'
 import Pagination from './pagination'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -22,8 +23,8 @@ const MoviesWithSlug: React.FC<{ slug: string }> = ({ slug }) => {
 
   let page = searchParams.get('page') || '1'
   page = +page < 1 ? '1' : page
-  
-  const { isLoading, error, data } = useQuery({    
+
+  const { isLoading, error, data } = useQuery({
     queryKey: [`all${slug}Movies_page${page}`],
     queryFn: async () => {
       const { data }: AxiosResponse<MovieData> = await axiosGet(`/movie/${slug}`, page)
@@ -33,7 +34,7 @@ const MoviesWithSlug: React.FC<{ slug: string }> = ({ slug }) => {
   })
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <MoviesWithSlugLoading />
   }
 
   return (
@@ -44,8 +45,9 @@ const MoviesWithSlug: React.FC<{ slug: string }> = ({ slug }) => {
           {+page === 1 ? page : page + 1} - {+page * 20}
           <span className='text-xs mx-1'>of</span>
           {data?.total_results}
-        </span></h5>
-        <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 place-items-center md:place-items-stretch gap-y-14 gap-x-10'>
+        </span>
+      </h5>
+      <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 place-items-center md:place-items-stretch gap-y-14 gap-x-10'>
         {data?.results.map((movie: Movie) => (
           <div key={movie.id} className='w-full max-w-[275px]'>
             <Link href={`/movie/${movie.id}`}>
