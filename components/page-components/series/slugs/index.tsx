@@ -77,7 +77,7 @@ const SeriesWithSlug: React.FC<{ slug: string }> = ({ slug }) => {
       </div>
       <Pagination page={page} totalPages={data?.total_pages} />
     </section>
-  );
-};
+  )
+}
 
 export default SeriesWithSlug
