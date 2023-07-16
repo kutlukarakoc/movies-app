@@ -6,22 +6,7 @@ import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useQuery } from '@tanstack/react-query'
 import { axiosGet } from '@/public/utils/fetch'
-
-type SerieData = {
-  backdrop_path?: string
-  first_air_date: string
-  genre_ids: number[]
-  id: number
-  name: string
-  origin_country: string[]
-  original_language: string
-  original_name: string
-  overview: string
-  popularity: number
-  poster_path: string
-  vote_average: number
-  vote_count: number
-}
+import { Serie } from '@/types/serie'
 
 interface SeriesSlide {
   path: string
@@ -36,7 +21,7 @@ const SeriesSlide: React.FC<SeriesSlide> = ({ path, reqKey, title, className }) 
     queryKey: [reqKey],
     queryFn: async () => {
       const { data } = await axiosGet(path)
-      const { results } = data
+      const results: Serie[] = data.results
       return results
     },
     refetchOnWindowFocus: false
@@ -61,12 +46,12 @@ const SeriesSlide: React.FC<SeriesSlide> = ({ path, reqKey, title, className }) 
           }}
           className={`${reqKey} h-[425px]`}
         >
-          {data.slice(0, 10).map((serie: SerieData) => {
+          {data.slice(0, 10).map((serie: Serie) => {
             if (serie.poster_path) {
               return (
                 <SwiperSlide key={serie.id} style={{ width: '250px', height: '425px' }}>
                   <div>
-                  <Link href={`/serie/${serie.id}`}>
+                    <Link href={`/serie/${serie.id}`}>
                       <Image
                         src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
                         alt={serie.name}
