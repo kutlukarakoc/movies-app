@@ -27,7 +27,7 @@ const Reviews: React.FC<{ movieId: string }> = ({ movieId }) => {
     return <ReviewsLoading />
   }
 
-  if (!error && data) {
+  if (!error && data && data.length) {
     return (
       <section className='section-container'>
         <h3 className='text-xl text-center mb-5'>Reviews</h3>
