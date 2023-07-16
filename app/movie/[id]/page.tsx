@@ -2,6 +2,7 @@ import Hero from '@/components/page-components/movie/hero'
 import Trailers from '@/components/page-components/movie/trailers'
 import Cast from '@/components/page-components/movie/cast'
 import Reviews from '@/components/page-components/movie/reviews'
+import Similars from '@/components/page-components/movie/similar'
 
 const Movie = ({ params }: { params: { id: string } }) => {
 
@@ -11,6 +12,7 @@ const Movie = ({ params }: { params: { id: string } }) => {
       <Trailers movieId={params.id} />
       <Cast movieId={params.id} />
       <Reviews movieId={params.id} />
+      <Similars movieId={params.id} />
     </>
   )
 }
