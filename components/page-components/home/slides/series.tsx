@@ -13,9 +13,10 @@ interface SeriesSlide {
   reqKey: string
   title: string
   className: string
+  referralPath: string
 }
 
-const SeriesSlide: React.FC<SeriesSlide> = ({ path, reqKey, title, className }) => {
+const SeriesSlide: React.FC<SeriesSlide> = ({ path, reqKey, title, className, referralPath }) => {
 
   const { isLoading, error, data } = useQuery({
     queryKey: [reqKey],
@@ -36,7 +37,7 @@ const SeriesSlide: React.FC<SeriesSlide> = ({ path, reqKey, title, className }) 
       <section className={`container mx-auto px-4 sm:px-0 ${className}`}>
         <div className='flex justify-between items-center mb-3'>
           <h3 className='text-xl text-secondary'>{title}</h3>
-          <Link href='/' className='text-sm text-accent hover:text-accent-light'>See More</Link>
+          <Link href={referralPath + '?page=1'} className='text-sm text-accent hover:text-accent-light'>See More</Link>
         </div>
         <Swiper
           slidesPerView={'auto'}
