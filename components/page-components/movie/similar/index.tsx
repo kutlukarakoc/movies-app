@@ -1,5 +1,6 @@
 'use client'
 
+import Card from '@/components/movie-serie-card'
 import SimilarsLoading from './loading'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -41,16 +42,11 @@ const Similars: React.FC<{ movieId: string }> = ({ movieId }) => {
               return (
                 <SwiperSlide key={movie.id} style={{ width: '250px', height: '425px' }}>
                   <div>
-                    <Link href={`/movie/${movie.id}`}>
-                      <Image
-                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                        alt={movie.title}
-                        width={250}
-                        height={375}
-                        className='rounded-sm h-[375px]'
-                        unoptimized
-                      />
-                    </Link>
+                    <Card
+                      url={`/movie/${movie.id}`}
+                      imgSrc={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                      alt={movie.title}
+                    />
                     <div className='flex justify-between items-end -mb-1'>
                       <h5 className='text-md text-secondary mt-1 truncate'>{movie.title}</h5>
                       <div className='flex items-center gap-1'>
