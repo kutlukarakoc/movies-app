@@ -1,23 +1,35 @@
+'use client'
+
 import SearchModal from '../modal/search'
+import Link from 'next/link'
 import Image from 'next/image'
+import { useSearchParams, usePathname } from 'next/navigation'
 import search from '@/public/assets/search.png'
-import { useSwal } from '@/hooks/useSwal'
 
 const Right: React.FC = () => {
 
-  const { showSwal, closeSwal } = useSwal()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const showModal = searchParams.get('search-modal')
 
-  const handleSwal = () => {
-    showSwal(<SearchModal />)
+  const createQueryString = (name: string, value: string) => {
+    const params = new URLSearchParams(searchParams.toString())
+    params.set(name, value)
+
+    return params
   }
 
   return (
-    <div className='h-full flex items-center gap-4 order-3'>
-      <button type='button' className='w-5 h-5 outline-none border-none sm:w-6 sm:h-6'>
-        <Image src={search} alt='movies-app' className='h-full max-w-full block' onClick={handleSwal} />
-      </button>
-      <div className='w-7 h-7 sm:w-8 sm:h-8 bg-zambezi rounded-full cursor-pointer'></div>
-    </div>
+    <>
+      <div className='h-full flex items-center gap-4 order-3'>
+        <Link href={pathname + '?' + createQueryString('search-modal', 'true')} className='w-5 h-5 outline-none border-none sm:w-6 sm:h-6'>
+          <Image src={search} alt='movies-app' className='h-full max-w-full block' />
+        </Link>
+        <div className='w-7 h-7 sm:w-8 sm:h-8 bg-zambezi rounded-full cursor-pointer'></div>
+      </div>
+
+      {showModal && <SearchModal />}
+    </>
   )
 }
 
