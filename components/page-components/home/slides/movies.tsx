@@ -51,7 +51,7 @@ const MovieSlide: React.FC<MovieSlide> = ({ path, reqKey, title, referralPath })
             if (movie.poster_path) {
               return (
                 <SwiperSlide key={movie.id} style={{ width: '250px', height: '425px' }}>
-                  <div>
+                  <div className='w-full max-w-[250px]'>
                     <Card
                       url={`/movie/${movie.id}`}
                       imgSrc={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

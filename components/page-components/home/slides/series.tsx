@@ -52,7 +52,7 @@ const SeriesSlide: React.FC<SeriesSlide> = ({ path, reqKey, title, className, re
             if (serie.poster_path) {
               return (
                 <SwiperSlide key={serie.id} style={{ width: '250px', height: '425px' }}>
-                  <div>
+                  <div className='w-full max-w-[250px]'>
                     <Card
                       url={`/serie/${serie.id}`}
                       imgSrc={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
