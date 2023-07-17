@@ -3,12 +3,14 @@
 import Modal from '.'
 import Image from 'next/image'
 import searchImg from '@/public/assets/search.png'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 
 const SearchModal: React.FC = () => {
 
   const [searchQuery, setSearchQuery] = useState<string>('')
+
+  const inputRef = useRef<HTMLInputElement | null>(null)
 
   const router = useRouter()
 
@@ -20,6 +22,10 @@ const SearchModal: React.FC = () => {
     }
   }
 
+  useEffect(() => {
+    inputRef.current && inputRef.current.focus()
+  }, [])
+
   return (
     <Modal showCloseButton={false}>
       <form className='relative w-full max-w-sm mx-auto h-12' onSubmit={handleSubmit}>
@@ -29,6 +35,7 @@ const SearchModal: React.FC = () => {
           className='w-full h-full px-4 rounded-lg border border-secondary text-secondary bg-primary text-sm outline-none'
           value={searchQuery}
           onChange={event => setSearchQuery(event?.target.value)}
+          ref={inputRef}
         />
         <button type='submit' className='border-none outline-none'>
           <Image src={searchImg} alt='movies' className='absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5' />
