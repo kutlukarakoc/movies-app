@@ -1,5 +1,6 @@
 'use client'
 
+import Card from '@/components/movie-serie-card'
 import SlideLoading from './loading'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -52,16 +53,11 @@ const SeriesSlide: React.FC<SeriesSlide> = ({ path, reqKey, title, className, re
               return (
                 <SwiperSlide key={serie.id} style={{ width: '250px', height: '425px' }}>
                   <div>
-                    <Link href={`/serie/${serie.id}`}>
-                      <Image
-                        src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
-                        alt={serie.name}
-                        width={250}
-                        height={375}
-                        className='rounded-sm'
-                        unoptimized
-                      />
-                    </Link>
+                    <Card
+                      url={`/serie/${serie.id}`}
+                      imgSrc={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
+                      alt={serie.name}
+                    />
                     <div className='flex justify-between items-end -mb-1'>
                       <h5 className='text-md text-secondary mt-1 truncate'>{serie.name}</h5>
                       <div className='flex items-center gap-1'>
