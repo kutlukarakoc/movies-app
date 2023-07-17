@@ -14,8 +14,8 @@ const Card: React.FC<Card> = ({ url, imgSrc, alt }) => {
         src={imgSrc}
         alt={alt}
         width={250}
-        height={375}
-        className='rounded-sm h-[375px]'
+        height={370}
+        className='rounded-sm h-[370px]'
         unoptimized
       />
     </Link>
