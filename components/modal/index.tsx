@@ -1,7 +1,6 @@
 'use client'
 
-import Link from 'next/link'
-import { usePathname, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 
@@ -12,7 +11,6 @@ type Modal = {
 
 const Modal: React.FC<Modal> = ({ children, showCloseButton = true }) => {
 
-  const pathname = usePathname()
   const router = useRouter()
 
   const modalRef = useRef<HTMLDivElement | null>(null)
@@ -37,9 +35,9 @@ const Modal: React.FC<Modal> = ({ children, showCloseButton = true }) => {
     >
       <div className='w-full relative max-w-sm md:max-w-md lg:max-w-lg' ref={modalRef}>
         {showCloseButton &&
-          <Link href={pathname}>
+          <button type='button' onClick={() => router.back()}>
             <XMarkIcon className='absolute z-50 top-0 right-0 w-6 h-6 text-secondary' />
-          </Link>
+          </button>
         }
         {children}
       </div>
