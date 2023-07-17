@@ -2,8 +2,6 @@
 
 import Card from '@/components/movie-serie-card'
 import SimilarsLoading from './loading'
-import Image from 'next/image'
-import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useQuery } from '@tanstack/react-query'
 import { axiosGet } from '@/public/utils/fetch'
