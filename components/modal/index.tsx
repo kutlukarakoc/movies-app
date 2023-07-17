@@ -1,13 +1,13 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 
 type Modal = {
   children: JSX.Element
-  showCloseButton: boolean
+  showCloseButton: boolean 
 }
 
 const Modal: React.FC<Modal> = ({ children, showCloseButton = true }) => {
