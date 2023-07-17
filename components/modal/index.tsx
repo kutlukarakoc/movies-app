@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 
@@ -19,7 +19,7 @@ const Modal: React.FC<Modal> = ({ children, showCloseButton = true }) => {
 
   const handleClickOutside = (event: React.MouseEvent<HTMLDivElement, MouseEvent> | MouseEvent) => {
     if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
-      router.push(pathname)
+      router.back()
     }
   }
 
