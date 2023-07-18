@@ -51,20 +51,13 @@ const SeriesSlide: React.FC<SeriesSlide> = ({ path, reqKey, title, className, re
             if (serie.poster_path) {
               return (
                 <SwiperSlide key={serie.id} style={{ width: '250px', height: '425px' }}>
-                  <div className='w-full max-w-[250px]'>
-                    <Card
-                      url={`/serie/${serie.id}`}
-                      imgSrc={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
-                      alt={serie.name}
-                    />
-                    <div className='flex justify-between items-end -mb-1'>
-                      <h5 className='text-md text-secondary mt-1 truncate'>{serie.name}</h5>
-                      <div className='flex items-center gap-1'>
-                        <p className='bg-accent text-xxs font-bold h-5 w-11 grid place-items-center text-center'>TMDB</p>
-                        <p className='text-xs text-secondary'>{serie.vote_average.toFixed(1)}</p>
-                      </div>
-                    </div>
-                  </div>
+                  <Card
+                    key={serie.id}
+                    url={`/movie/${serie.id}`}
+                    imgSrc={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
+                    title={serie.name}
+                    averageVote={serie.vote_average}
+                  />
                 </SwiperSlide>
               )
             }

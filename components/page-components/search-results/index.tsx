@@ -49,20 +49,13 @@ const SearchResults: React.FC = () => {
       </h5>
       <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 place-items-center md:place-items-stretch gap-y-14 gap-x-10'>
         {data?.results.map((movie: Movie) => (
-          <div key={movie.id} className='w-full max-w-[250px]'>
-            <Card
-              url={`/movie/${movie.id}`}
-              imgSrc={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-              alt={movie.title}
-            />
-            <div className='flex justify-between items-end -mb-1'>
-              <h5 className='text-sm md:text-md text-secondary mt-1 truncate'>{movie.title}</h5>
-              <div className='flex items-center gap-1'>
-                <p className='bg-accent text-xxs font-bold h-5 w-11 grid place-items-center text-center'>TMDB</p>
-                <p className='text-xs text-secondary'>{movie.vote_average.toFixed(1)}</p>
-              </div>
-            </div>
-          </div>
+          <Card
+            key={movie.id}
+            url={`/movie/${movie.id}`}
+            imgSrc={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            title={movie.title}
+            averageVote={movie.vote_average}
+          />
         ))}
       </div>
       <Pagination page={page} totalPages={data?.total_pages} />

@@ -50,20 +50,13 @@ const MovieSlide: React.FC<MovieSlide> = ({ path, reqKey, title, referralPath })
             if (movie.poster_path) {
               return (
                 <SwiperSlide key={movie.id} style={{ width: '250px', height: '425px' }}>
-                  <div className='w-full max-w-[250px]'>
-                    <Card
-                      url={`/movie/${movie.id}`}
-                      imgSrc={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                      alt={movie.title}
-                    />
-                    <div className='flex justify-between items-end -mb-1'>
-                      <h5 className='text-md text-secondary mt-1 truncate'>{movie.title}</h5>
-                      <div className='flex items-center gap-1'>
-                        <p className='bg-accent text-xxs font-bold h-5 w-11 grid place-items-center text-center'>TMDB</p>
-                        <p className='text-xs text-secondary'>{movie.vote_average.toFixed(1)}</p>
-                      </div>
-                    </div>
-                  </div>
+                  <Card
+                    key={movie.id}
+                    url={`/movie/${movie.id}`}
+                    imgSrc={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    title={movie.title}
+                    averageVote={movie.vote_average}
+                  />
                 </SwiperSlide>
               )
             }
