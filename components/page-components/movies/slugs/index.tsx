@@ -1,5 +1,6 @@
 'use client'
 
+import GridCards from '@/components/grid-cards'
 import Card from '@/components/movie-serie-card'
 import MoviesWithSlugLoading from './loading'
 import Pagination from './pagination'
@@ -46,7 +47,7 @@ const MoviesWithSlug: React.FC<{ slug: string }> = ({ slug }) => {
           {data?.total_results}
         </span>
       </h5>
-      <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 place-items-center md:place-items-stretch gap-y-14 gap-x-10'>
+      <GridCards>
         {data?.results.map((movie: Movie) => (
           <Card
             key={movie.id}
@@ -56,7 +57,7 @@ const MoviesWithSlug: React.FC<{ slug: string }> = ({ slug }) => {
             averageVote={movie.vote_average}
           />
         ))}
-      </div>
+      </GridCards>
       <Pagination page={page} totalPages={data?.total_pages} />
     </section>
   )
