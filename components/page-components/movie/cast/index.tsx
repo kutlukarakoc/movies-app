@@ -29,8 +29,6 @@ const Cast: React.FC<{ movieId: string }> = ({ movieId }) => {
     return <CastLoading />
   }
 
-  console.log('data', data)
-
   if (!error && data) {
     return (
       <section className='section-container'>
