@@ -42,7 +42,6 @@ const Cast: React.FC<{ movieId: string }> = ({ movieId }) => {
             clickable: true,
           }}
           className={`castAndCrew_${movieId}`}
-          style={{ marginLeft: '-8px' }}
         >
           {data.map((person: CastProps) => (
             <SwiperSlide key={person.id} style={{ width: '224px', height: '288px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
