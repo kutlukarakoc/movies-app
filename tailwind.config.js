@@ -29,6 +29,13 @@ module.exports = {
         'xl': '26px',  // h3
         '2xl': '42px', // h2
         '3xl': '56px', // h1
+      },
+      backgroundSize: {
+        'full': '100%',
+        '400': '400px'
+      },
+      backgroundPosition: {
+        'left-center': 'left center' 
       }
     }
   },
