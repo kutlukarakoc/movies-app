@@ -29,6 +29,8 @@ const Cast: React.FC<{ movieId: string }> = ({ movieId }) => {
     return <CastLoading />
   }
 
+  console.log('data', data)
+
   if (!error && data) {
     return (
       <section className='section-container'>
@@ -43,23 +45,21 @@ const Cast: React.FC<{ movieId: string }> = ({ movieId }) => {
           style={{ marginLeft: '-8px' }}
         >
           {data.map((person: CastProps) => (
-            <SwiperSlide key={person.id} style={{ width: '160px', height: '208px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <Link href={`/person/${person.cast_id}`} className='block relative w-36 h-36'>
+            <SwiperSlide key={person.id} style={{ width: '224px', height: '288px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Link href={`/person/${person.cast_id}`} className='group block relative w-56 h-72'>
                 {person.profile_path ?
-                  <Image
-                    src={`https://image.tmdb.org/t/p/w500${person.profile_path}`}
-                    alt={person.name}
-                    fill
-                    className='rounded-full object-cover bg-zambezi'
-                    unoptimized
-                  /> :
-                  <div className='w-36 h-36 flex rounded-full justify-center items-center bg-zambezi'>
+                  <div className='bg-no-repeat bg-center w-full h-full bg-full group-hover:bg-left-center group-hover:bg-400 group-hover:grayscale group-hover:brightness-75 rounded-sm' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500${person.profile_path})`, transition: '.2s all ease-out' }}>
+                  </div>
+                  :
+                  <div className='w-full h-full flex rounded-sm justify-center items-center bg-zambezi'>
                     {person.gender === 1 ? <SlUserFemale size={44} /> : <UserIcon className='w-12 h-12' />}
                   </div>
                 }
+                <div className='opacity-0 group-hover:opacity-100 absolute z-10 top-1/2 -translate-y-1/2 left-1'>
+                  <h5 className='text-white text-md mb-2 font-semibold'>{person.name}</h5>
+                  <h6 className='text-white text-sm font-semibold'>{person.character}</h6>
+                </div>
               </Link>
-              <h6 className='text-sm mt-2 text-center'>{person.name}</h6>
-              <p className='text-zambezi text-xs text-center'>{person.character}</p>
             </SwiperSlide>
           ))}
         </Swiper>
