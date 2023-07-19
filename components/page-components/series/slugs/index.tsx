@@ -3,10 +3,8 @@
 import GridCards from '@/components/grid-cards'
 import Card from '@/components/movie-serie-card'
 import SeriesWithSlugLoading from './loading'
-import Pagination from './pagination'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
+import Pagination from '@/components/pagination'
+import { getPage } from '@/public/utils/page'
 import { useQuery } from '@tanstack/react-query'
 import { axiosGet } from '@/public/utils/fetch'
 import { Serie } from '@/types/serie'
@@ -21,10 +19,7 @@ type SerieData = {
 
 const SeriesWithSlug: React.FC<{ slug: string }> = ({ slug }) => {
 
-  const searchParams = useSearchParams()
-
-  let page = searchParams.get('page') || '1'
-  page = +page < 1 ? '1' : page
+  const page = getPage()
 
   const { isLoading, error, data } = useQuery({
     queryKey: [`all${slug}Series_page${page}`],
@@ -58,7 +53,7 @@ const SeriesWithSlug: React.FC<{ slug: string }> = ({ slug }) => {
         {data?.results.map((serie: Serie) => (
           <Card
             key={serie.id}
-            url={`/movie/${serie.id}`}
+            url={`/serie/${serie.id}`}
             imgSrc={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
             title={serie.name}
             averageVote={serie.vote_average}

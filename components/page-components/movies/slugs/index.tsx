@@ -4,11 +4,11 @@ import GridCards from '@/components/grid-cards'
 import Card from '@/components/movie-serie-card'
 import MoviesWithSlugLoading from './loading'
 import Pagination from '@/components/pagination'
-import { useSearchParams } from 'next/navigation'
 import { useQuery } from '@tanstack/react-query'
 import { axiosGet } from '@/public/utils/fetch'
 import { Movie } from '@/types/movie'
 import { AxiosResponse } from 'axios'
+import { getPage } from '@/public/utils/page'
 
 type MovieData = {
   page: number
@@ -19,11 +19,7 @@ type MovieData = {
 
 const MoviesWithSlug: React.FC<{ slug: string }> = ({ slug }) => {
 
-  const searchParams = useSearchParams()
-
-  let page = searchParams.get('page') || '1'
-  page = +page < 1 ? '1' : page
-
+  const page = getPage()
   const { isLoading, error, data } = useQuery({
     queryKey: [`all${slug}Movies_page${page}`],
     queryFn: async () => {

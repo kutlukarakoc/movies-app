@@ -7,6 +7,7 @@ import Pagination from '@/components/pagination'
 import { useQuery } from '@tanstack/react-query'
 import { axiosGet } from '@/public/utils/fetch'
 import { useSearchParams } from 'next/navigation'
+import { getPage } from '@/public/utils/page'
 import { Movie } from '@/types/movie'
 import { AxiosResponse } from 'axios'
 
@@ -20,10 +21,9 @@ type MovieData = {
 const SearchResults: React.FC = () => {
 
   const searchParams = useSearchParams()
-  const searchQuery = searchParams.get('search')
 
-  let page = searchParams.get('page') || '1'
-  page = +page < 1 ? '1' : page
+  const page = getPage()
+  const searchQuery = searchParams.get('search')
 
   const { isLoading, error, data } = useQuery({
     queryKey: [`search_${searchQuery}`],
