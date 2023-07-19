@@ -3,7 +3,7 @@
 import GridCards from '@/components/grid-cards'
 import Card from '@/components/movie-serie-card'
 import MoviesWithSlugLoading from './loading'
-import Pagination from './pagination'
+import Pagination from '@/components/pagination'
 import { useSearchParams } from 'next/navigation'
 import { useQuery } from '@tanstack/react-query'
 import { axiosGet } from '@/public/utils/fetch'
