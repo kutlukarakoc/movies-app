@@ -32,7 +32,7 @@ const Trailers: React.FC<{ movieId: string }> = ({ movieId }) => {
         <div className='grid gap-y-8 gap-x-6 justify-between' style={{ gridTemplateColumns: 'repeat(auto-fill,minmax(20rem,1fr))' }}>
           {data?.slice(0, trailersSlice).map(trailer => (
             <div className='aspect-video w-full' key={trailer.id}>
-              <iframe src={`https://www.youtube.com/embed/${trailer.key}?rel=0autohide=1&showinfo=0`} width='100%' height='100%' frameBorder='0' allowFullScreen></iframe>
+              <iframe src={`https://www.youtube.com/embed/${trailer.key}?rel=0autohide=1&showinfo=0`} width='100%' height='100%' frameBorder='0' allowFullScreen className='rounded-sm'></iframe>
               <h5 className='text-secondary text-md mt-2 truncate'>{trailer.name}</h5>
               <h6 className='text-zambezi text-sm'>{trailer.type}</h6>
               <p className='text-zambezi text-xs'>Published at : {trailer.published_at.split('T')[0]}</p>
