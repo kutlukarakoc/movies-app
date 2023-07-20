@@ -53,7 +53,7 @@ const Cast: React.FC<{ id: string, reqUrl: string }> = ({ id, reqUrl }) => {
                 }
                 <div className='opacity-0 group-hover:opacity-100 absolute z-10 top-1/2 -translate-y-1/2 left-1'>
                   <h5 className='text-white text-md mb-2 font-semibold'>{person.name}</h5>
-                  <h6 className='text-white text-sm font-semibold'>{person.character}</h6>
+                  <h6 className='text-white text-sm font-semibold'>{person.roles ? person.roles[0].character : person.character}</h6>
                 </div>
               </Link>
             </SwiperSlide>
