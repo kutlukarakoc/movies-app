@@ -28,6 +28,8 @@ const Cast: React.FC<{ id: string, reqUrl: string }> = ({ id, reqUrl }) => {
     return <CastLoading />
   }
 
+  console.log('data',data)
+
   if (!error && data) {
     return (
       <section className='section-container'>
@@ -42,7 +44,7 @@ const Cast: React.FC<{ id: string, reqUrl: string }> = ({ id, reqUrl }) => {
         >
           {data.map((person: CastProps) => (
             <SwiperSlide key={person.id} style={{ width: '224px', height: '288px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <Link href={`/person/${person.cast_id}`} className='group block relative w-56 h-72'>
+              <Link href={`/person/${person.id}`} className='group block relative w-56 h-72'>
                 {person.profile_path ?
                   <div className='bg-no-repeat bg-center w-full h-full bg-full group-hover:bg-left-center group-hover:bg-400 group-hover:grayscale group-hover:brightness-75 rounded-sm' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500${person.profile_path})`, transition: '.2s all ease-out' }}>
                   </div>
