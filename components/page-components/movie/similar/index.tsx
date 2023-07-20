@@ -25,7 +25,7 @@ const Similars: React.FC<{ movieId: string }> = ({ movieId }) => {
 
   if (data && !error) {
     return (
-      <section className='container mx-auto px-4 sm:px-0 mb-10'>
+      <section className='section-container'>
         <h3 className='text-xl mb-5 text-secondary'>Similar Movies</h3>
         <Swiper
           slidesPerView={'auto'}
