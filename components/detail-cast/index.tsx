@@ -1,7 +1,6 @@
 'use client'
 
 import CastLoading from './loading'
-import Image from 'next/image'
 import Link from 'next/link'
 import { SlUserFemale } from 'react-icons/sl'
 import { UserIcon } from '@heroicons/react/24/outline'
@@ -12,12 +11,12 @@ import { AxiosResponse } from 'axios'
 import { CastProps, Credits } from '@/types/castAndCrew'
 import 'swiper/css'
 
-const Cast: React.FC<{ movieId: string }> = ({ movieId }) => {
+const Cast: React.FC<{ id: string, reqUrl: string }> = ({ id, reqUrl }) => {
 
   const { isLoading, error, data } = useQuery({
-    queryKey: [`castAndCrew_${movieId}`],
+    queryKey: [`castAndCrew_${id}`],
     queryFn: async () => {
-      const { data }: AxiosResponse<Credits> = await axiosGet(`/movie/${movieId}/credits`)
+      const { data }: AxiosResponse<Credits> = await axiosGet(reqUrl)
       const cast: CastProps[] = data.cast
       const slicedCast: CastProps[] = cast.length > 25 ? cast.slice(0, 25) : cast
       return slicedCast
@@ -39,7 +38,7 @@ const Cast: React.FC<{ movieId: string }> = ({ movieId }) => {
           pagination={{
             clickable: true,
           }}
-          className={`castAndCrew_${movieId}`}
+          className={`castAndCrew_${id}`}
         >
           {data.map((person: CastProps) => (
             <SwiperSlide key={person.id} style={{ width: '224px', height: '288px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
