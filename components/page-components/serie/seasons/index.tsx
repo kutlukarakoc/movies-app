@@ -2,6 +2,7 @@
 
 import GridCards from '@/components/grid-cards'
 import SeasonCard from './seasonCard'
+import SeasonsLoading from './loading'
 import { useQuery } from '@tanstack/react-query'
 import { axiosGet } from '@/public/utils/fetch'
 import { SerieDetails, Season } from '@/types/serieDetails'
@@ -20,7 +21,7 @@ const Seasons: React.FC<{ serieId: string }> = ({ serieId }) => {
   })
 
   if (isLoading) {
-    return <div>loading...</div>
+    return <SeasonsLoading />
   }
 
 
