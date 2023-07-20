@@ -28,8 +28,6 @@ const Cast: React.FC<{ id: string, reqUrl: string }> = ({ id, reqUrl }) => {
     return <CastLoading />
   }
 
-  console.log('data',data)
-
   if (!error && data) {
     return (
       <section className='section-container'>
