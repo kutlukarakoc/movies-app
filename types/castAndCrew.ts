@@ -17,6 +17,13 @@ export interface CastProps {
   character: string
   credit_id: string
   order: number
+  roles?: SerieCastProps[]
+}
+
+type SerieCastProps = {
+  credit_id: string
+  character: string
+  episode_count: number
 }
 
 interface CrewProps {
