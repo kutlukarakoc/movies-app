@@ -7,12 +7,18 @@ import { useQuery } from '@tanstack/react-query'
 import { axiosGet } from '@/public/utils/fetch'
 import { Movie } from '@/types/movie'
 
-const Similars: React.FC<{ movieId: string }> = ({ movieId }) => {
+type Similars = {
+  title: string
+  id: string
+  reqUrl: string
+}
+
+const Similars: React.FC<Similars> = ({ title, id, reqUrl }) => {
 
   const { isLoading, error, data } = useQuery({
-    queryKey: [`similarTo/${movieId}`],
+    queryKey: [`similarTo/${id}`],
     queryFn: async () => {
-      const { data } = await axiosGet(`/movie/${movieId}/similar`)
+      const { data } = await axiosGet(reqUrl)
       const results: Movie[] = data.results
       return results
     },
@@ -26,14 +32,14 @@ const Similars: React.FC<{ movieId: string }> = ({ movieId }) => {
   if (data && !error) {
     return (
       <section className='section-container'>
-        <h3 className='text-xl mb-5 text-secondary'>Similar Movies</h3>
+        <h3 className='text-xl mb-5 text-secondary'>Similar {title}</h3>
         <Swiper
           slidesPerView={'auto'}
           spaceBetween={20}
           pagination={{
             clickable: true,
           }}
-          className={`similarTo${movieId} h-[425px]`}
+          className={`similarTo${id} h-[425px]`}
         >
           {data.slice(0, 10).map((movie: Movie) => {
             if (movie.poster_path) {
