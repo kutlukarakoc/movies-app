@@ -49,7 +49,7 @@ const Similars: React.FC<Similars> = ({ title, id, reqUrl }) => {
                     key={movie.id}
                     url={`/movie/${movie.id}`}
                     imgSrc={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                    title={movie.title}
+                    title={movie.name && movie.name ? movie.name : movie.title}
                     averageVote={movie.vote_average}
                   />
                 </SwiperSlide>
