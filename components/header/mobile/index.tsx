@@ -1,4 +1,5 @@
 'use client'
+
 import Menu from './menu'
 import { Bars3Icon } from '@heroicons/react/24/outline'
 import { useEffect, useState } from 'react'

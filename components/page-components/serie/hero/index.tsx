@@ -1,8 +1,8 @@
 'use client'
 
-import Hero from '@/components/detail-hero'
-import HeroLoading from '@/components/detail-hero/loading'
-import Genres from '@/components/detail-genres'
+import Hero from '@/components/detail-components/hero'
+import HeroLoading from '@/components/detail-components/hero/loading'
+import Genres from '@/components/detail-components/genres'
 import { SerieDetails } from '@/types/serieDetails'
 import { useQuery } from '@tanstack/react-query'
 import { axiosGet } from '@/public/utils/fetch'

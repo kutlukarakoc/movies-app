@@ -1,8 +1,8 @@
 import Hero from '@/components/page-components/movie/hero'
 import Trailers from '@/components/page-components/movie/trailers'
-import Cast from '@/components/detail-cast'
+import Cast from '@/components/detail-components/cast'
 import Reviews from '@/components/page-components/movie/reviews'
-import Similars from '@/components/detail-similar'
+import Similars from '@/components/detail-components/similar'
 
 const Movie = ({ params }: { params: { id: string } }) => {
 
