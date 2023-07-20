@@ -10,7 +10,7 @@ import { AxiosResponse } from 'axios'
 const Seasons: React.FC<{ serieId: string }> = ({ serieId }) => {
 
   const { isLoading, error, data } = useQuery({
-    queryKey: [`serieqw_${serieId}`],
+    queryKey: [`serieSeasons_${serieId}`],
     queryFn: async () => {
       const { data }: AxiosResponse<SerieDetails> = await axiosGet(`/tv/${serieId}`)
       const seasons: Season[] = data.seasons
