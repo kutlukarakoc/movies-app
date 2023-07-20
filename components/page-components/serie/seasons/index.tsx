@@ -1,5 +1,6 @@
 'use client'
 
+import GridCards from '@/components/grid-cards'
 import SeasonCard from './seasonCard'
 import { useQuery } from '@tanstack/react-query'
 import { axiosGet } from '@/public/utils/fetch'
@@ -27,12 +28,12 @@ const Seasons: React.FC<{ serieId: string }> = ({ serieId }) => {
   if (!error && data && data.length) {
     return (
       <section className='section-container mt-14'>
-        <h3 className='text-xl text-center sm:text-left mb-5'>{data?.length} Seasons</h3>
-        <div className='grid gap-y-8 gap-x-6 justify-items-center md:justify-items-stretch' style={{ gridTemplateColumns: 'repeat(auto-fill,minmax(20rem,1fr))' }}>
+        <h3 className='text-xl text-center md:text-left mb-5'>{data?.length} Seasons</h3>
+        <GridCards>
           {data?.map((season: Season) => (
             <SeasonCard key={season.id} season={season} />
           ))}
-        </div>
+        </GridCards>
       </section>
     )
   }
