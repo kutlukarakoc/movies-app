@@ -1,15 +1,12 @@
 import Hero from '@/components/page-components/serie/hero'
+import Seasons from '@/components/page-components/serie/seasons'
 
 const Serie = ({ params }: { params: { id: string } }) => {
 
   return (
     <>
-    <Hero serieId={params.id} />
-      {/* 
-      <Trailers movieId={params.id} />
-      <Cast movieId={params.id} />
-      <Reviews movieId={params.id} />
-      <Similars movieId={params.id} /> */}
+      <Hero serieId={params.id} />
+      <Seasons serieId={params.id} />
     </>
   )
 }
