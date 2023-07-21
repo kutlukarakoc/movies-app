@@ -1,9 +1,9 @@
-const Series: React.FC = () => {
+import AllMoviesSeries from '@/components/all-movies-series'
+
+const Movies: React.FC = () => {
   return (
-    <section className='section-container'>
-      Series
-    </section>
+    <AllMoviesSeries title='serie' reqUrl='/tv/popular' />
   )
 }
 
-export default Series
+export default Movies
