@@ -10,14 +10,14 @@ import { AxiosResponse } from 'axios'
 import { Reviews, Result } from '@/types/revies'
 import { useState } from 'react'
 
-const Reviews: React.FC<{ movieId: string }> = ({ movieId }) => {
+const Reviews: React.FC<{ id: string, reqUrl: string }> = ({ id, reqUrl }) => {
 
   const [reviewsSlice, setReviewsSlice] = useState<number>(5)
 
   const { isLoading, error, data } = useQuery({
-    queryKey: [`reviews_${movieId}`],
+    queryKey: [`reviews_${id}`],
     queryFn: async () => {
-      const { data }: AxiosResponse<Reviews> = await axiosGet(`/movie/${movieId}/reviews`)
+      const { data }: AxiosResponse<Reviews> = await axiosGet(reqUrl)
       const results: Result[] = data.results
       return results
     }
