@@ -1,8 +1,8 @@
+import AllMoviesSeries from '@/components/all-movies-series'
+
 const Movies: React.FC = () => {
   return (
-    <section className='section-container'>
-      movies
-    </section>
+    <AllMoviesSeries title='movie' reqUrl='/movie/top_rated' />
   )
 }
 
