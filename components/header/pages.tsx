@@ -6,7 +6,7 @@ const Pages: React.FC = () => {
     <div className='flex items-center gap-5 text-secondary text-sm font-medium'>
       <Link href='/'>Home</Link>
       <Link href='/movies'>Movies</Link>
-      <Link href='/'>Series</Link>
+      <Link href='/series'>Series</Link>
       <Link href='/'>My List</Link>
     </div>
   </div>
