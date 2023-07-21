@@ -11,7 +11,7 @@ export const contents = [
       },
       {
         title: 'Series',
-        path: '/'
+        path: '/series'
       },
       {
         title: 'My List',
