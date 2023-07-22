@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { Season } from '@/types/serieDetails'
 
-
 const SeasonCard: React.FC<{ season: Season }> = ({ season }) => {
   return (
     <div className='w-[246px] h-[410px] rounded-sm group'>
