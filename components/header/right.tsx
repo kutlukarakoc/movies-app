@@ -5,12 +5,13 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useSearchParams, usePathname } from 'next/navigation'
 import search from '@/public/assets/search.png'
+import { ReadonlyURLSearchParams } from 'next/navigation'
 
 const Right: React.FC = () => {
 
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
-  const showModal = searchParams.get('search-modal')
+  const pathname: string = usePathname()
+  const searchParams: ReadonlyURLSearchParams = useSearchParams()
+  const showModal: string | null = searchParams.get('search-modal')
 
   const createQueryString = (name: string, value: string): URLSearchParams => {
     const params = new URLSearchParams(searchParams.toString())
