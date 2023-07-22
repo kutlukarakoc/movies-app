@@ -32,7 +32,7 @@ const SerieHero: React.FC<{ serieId: string }> = ({ serieId }) => {
         status={data.status}
         date={data.last_air_date}
       >
-        <Genres genres={data.genres} />
+        {data.genres && <Genres genres={data.genres} />}
       </Hero>
     )
   }
