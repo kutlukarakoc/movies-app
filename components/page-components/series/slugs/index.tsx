@@ -1,8 +1,8 @@
 'use client'
 
 import GridCards from '@/components/grid-cards'
+import GridCardsLoading from '@/components/grid-cards/loading'
 import Card from '@/components/movie-serie-card'
-import SeriesWithSlugLoading from './loading'
 import Pagination from '@/components/pagination'
 import { getPage } from '@/public/utils/page'
 import { useQuery } from '@tanstack/react-query'
@@ -36,7 +36,7 @@ const SeriesWithSlug: React.FC<{ slug: string }> = ({ slug }) => {
   }
 
   if (isLoading) {
-    return <SeriesWithSlugLoading />
+    return <GridCardsLoading />
   }
 
   if (!error && data && data.results.length) {
