@@ -3,19 +3,22 @@
 import { useRouter } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import { MutableRefObject } from 'react'
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context'
+
 
 type Modal = {
   children: JSX.Element
-  showCloseButton: boolean 
+  showCloseButton: boolean
 }
 
 const Modal: React.FC<Modal> = ({ children, showCloseButton = true }) => {
 
-  const router = useRouter()
+  const router: AppRouterInstance = useRouter()
 
-  const modalRef = useRef<HTMLDivElement | null>(null)
+  const modalRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement | null>(null)
 
-  const handleClickOutside = (event: React.MouseEvent<HTMLDivElement, MouseEvent> | MouseEvent) => {
+  const handleClickOutside = (event: React.MouseEvent<HTMLDivElement, MouseEvent> | MouseEvent): void => {
     if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
       router.back()
     }
