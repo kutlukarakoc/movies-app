@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { HeartIcon } from '@heroicons/react/24/outline'
 
-type Hero = {
+interface Hero {
   children: JSX.Element
   backdropPath: string
   title: string
