@@ -1,6 +1,7 @@
 'use client'
 
 import GridCards from '@/components/grid-cards'
+import GridCardsLoading from '@/components/grid-cards/loading'
 import Card from '@/components/movie-serie-card'
 import MoviesWithSlugLoading from './loading'
 import Pagination from '@/components/pagination'
@@ -30,7 +31,7 @@ const MoviesWithSlug: React.FC<{ slug: string }> = ({ slug }) => {
   })
 
   if (isLoading) {
-    return <MoviesWithSlugLoading />
+    return <GridCardsLoading />
   }
 
   if (!error && data && data.results.length) {
