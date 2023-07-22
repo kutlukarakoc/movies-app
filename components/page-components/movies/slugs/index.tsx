@@ -10,7 +10,7 @@ import { Movie } from '@/types/movie'
 import { AxiosResponse } from 'axios'
 import { getPage } from '@/public/utils/page'
 
-type MovieData = {
+interface MovieData {
   page: number
   results: Movie[]
   total_pages: number
@@ -19,7 +19,8 @@ type MovieData = {
 
 const MoviesWithSlug: React.FC<{ slug: string }> = ({ slug }) => {
 
-  const page = getPage()
+  const page: string = getPage()
+
   const { isLoading, error, data } = useQuery({
     queryKey: [`all${slug}Movies_page${page}`],
     queryFn: async () => {
