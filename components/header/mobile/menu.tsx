@@ -3,12 +3,12 @@ import Link from 'next/link'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { SetStateAction } from 'react'
 
-interface IMenu {
+interface Menu {
   transform: string
   setShowMenu: (value: SetStateAction<boolean>) => void
 }
 
-const Menu: React.FC<IMenu> = ({ transform, setShowMenu }) => {
+const Menu: React.FC<Menu> = ({ transform, setShowMenu }) => {
   return (
     <div className={`absolute z-50 left-0 top-0 w-8/12 max-w-sm py-6 bg-primary text-secondary text-sm font-medium shadow-accentshd rounded-ee-lg transition-transform sm:hidden ${transform}`}>
       <div className='flex flex-col justify-center items-start gap-5 flex-1 h-full py-16 px-10'>
