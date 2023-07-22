@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-type Card = {
+interface Card {
   url: string
   imgSrc: string
   title: string

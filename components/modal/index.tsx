@@ -7,7 +7,7 @@ import { MutableRefObject } from 'react'
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context'
 
 
-type Modal = {
+interface Modal {
   children: JSX.Element
   showCloseButton: boolean
 }
