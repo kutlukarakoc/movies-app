@@ -5,7 +5,7 @@ import { Bars3Icon } from '@heroicons/react/24/outline'
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
-const Mobile = () => {
+const Mobile: React.FC = () => {
 
   const [showMenu, setShowMenu] = useState<boolean>(false)
   const [transform, setTransform] = useState<string>('-translate-x-[400px]')
