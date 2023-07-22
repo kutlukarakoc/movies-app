@@ -10,7 +10,7 @@ import { Movie } from '@/types/movie'
 import { AxiosResponse } from 'axios'
 import { getPage } from '@/public/utils/page'
 
-type MovieData = {
+interface MovieData {
   page: number
   results: Movie[]
   total_pages: number
