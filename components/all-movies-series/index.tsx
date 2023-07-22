@@ -19,7 +19,7 @@ type MovieData = {
 
 const AllMoviesSeries: React.FC<{ title: string, reqUrl: string }> = ({ title, reqUrl }) => {
 
-  const page = getPage()
+  const page: string = getPage()
   const { isLoading, error, data } = useQuery({
     queryKey: [`${title}s_${page}`],
     queryFn: async () => {
