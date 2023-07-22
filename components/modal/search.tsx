@@ -5,16 +5,18 @@ import Image from 'next/image'
 import searchImg from '@/public/assets/search.png'
 import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
+import { MutableRefObject } from 'react'
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context'
 
 const SearchModal: React.FC = () => {
 
   const [searchQuery, setSearchQuery] = useState<string>('')
 
-  const inputRef = useRef<HTMLInputElement | null>(null)
+  const inputRef: MutableRefObject<HTMLInputElement | null> = useRef<HTMLInputElement | null>(null)
 
-  const router = useRouter()
+  const router: AppRouterInstance = useRouter()
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
     const trimmedSearchQuery = searchQuery.trim()
     if (trimmedSearchQuery) {
