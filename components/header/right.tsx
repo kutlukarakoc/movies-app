@@ -22,7 +22,7 @@ const Right: React.FC = () => {
   return (
     <>
       <div className='h-full flex items-center gap-4 order-3'>
-        <Link href={pathname + '?' + createQueryString('search-modal', 'true')} className='w-5 h-5 outline-none border-none sm:w-6 sm:h-6'>
+        <Link href={pathname + '?' + createQueryString('search-modal', 'true')} className='w-[1.4rem] h-[1.4rem] outline-none border-none'>
           <Image src={search} alt='movies-app' className='h-full max-w-full block' />
         </Link>
         <div className='w-7 h-7 sm:w-8 sm:h-8 bg-zambezi rounded-full cursor-pointer'></div>
