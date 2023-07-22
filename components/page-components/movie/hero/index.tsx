@@ -33,7 +33,7 @@ const MovieHero: React.FC<{ movieId: string }> = ({ movieId }) => {
         status={data.status}
         date={data.release_date}
       >
-        <Genres genres={data.genres} />
+        {data.genres && <Genres genres={data.genres} />}
       </Hero>
     )
   }
