@@ -10,7 +10,7 @@ import { axiosGet } from '@/public/utils/fetch'
 import { Serie } from '@/types/serie'
 import { AxiosResponse } from 'axios'
 
-type SerieData = {
+interface SerieData {
   page: number
   results: Serie[]
   total_pages: number
@@ -19,7 +19,7 @@ type SerieData = {
 
 const SeriesWithSlug: React.FC<{ slug: string }> = ({ slug }) => {
 
-  const page = getPage()
+  const page: string = getPage()
 
   const { isLoading, error, data } = useQuery({
     queryKey: [`all${slug}Series_page${page}`],
@@ -30,7 +30,7 @@ const SeriesWithSlug: React.FC<{ slug: string }> = ({ slug }) => {
     refetchOnWindowFocus: false
   })
 
-  let title = slug.split('_').join(' ')
+  let title: string = slug.split('_').join(' ')
   if (title.includes('air')) {
     title = 'Upcoming'
   }
