@@ -24,8 +24,6 @@ const Seasons: React.FC<{ serieId: string }> = ({ serieId }) => {
     return <SeasonsLoading />
   }
 
-
-  console.log('dataaa',data)
   if (!error && data && data.length) {
     return (
       <section className='section-container mt-14'>
