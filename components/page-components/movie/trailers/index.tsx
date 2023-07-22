@@ -25,7 +25,7 @@ const Trailers: React.FC<{ movieId: string }> = ({ movieId }) => {
     return <TrailersLoading />
   }
 
-  if (!error && data) {
+  if (!error && data && data.length) {
     return (
       <section className='section-container'>
         <h3 className='text-xl mb-5'>{data.length} Videos</h3>
