@@ -31,7 +31,7 @@ const MovieSlide: React.FC<MovieSlide> = ({ path, reqKey, title, referralPath })
     return <SlideLoading />
   }
 
-  if (data && !error) {
+  if (!error && data && data.length) {
     return (
       <section className='container mx-auto px-4 sm:px-0 mb-10'>
         <div className='flex justify-between items-center mb-3'>

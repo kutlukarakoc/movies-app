@@ -32,7 +32,7 @@ const SeriesSlide: React.FC<SeriesSlide> = ({ path, reqKey, title, className, re
     return <SlideLoading />
   }
 
-  if (data && !error) {
+  if (!error && data && data.length) {
     return (
       <section className={`container mx-auto px-4 sm:px-0 ${className}`}>
         <div className='flex justify-between items-center mb-3'>
