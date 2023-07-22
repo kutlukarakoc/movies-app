@@ -29,7 +29,7 @@ const Similars: React.FC<Similars> = ({ title, id, reqUrl }) => {
     return <SimilarsLoading />
   }
 
-  if (data && !error) {
+  if (!error && data && data.length) {
     return (
       <section className='section-container'>
         <h3 className='text-xl mb-5 text-secondary'>Similar {title}</h3>
