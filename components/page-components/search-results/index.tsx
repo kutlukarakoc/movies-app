@@ -9,9 +9,10 @@ import { axiosGet } from '@/public/utils/fetch'
 import { useSearchParams } from 'next/navigation'
 import { getPage } from '@/public/utils/page'
 import { Movie } from '@/types/movie'
+import { ReadonlyURLSearchParams } from 'next/navigation'
 import { AxiosResponse } from 'axios'
 
-type MovieData = {
+interface MovieData {
   page: number
   results: Movie[]
   total_pages: number
@@ -20,10 +21,10 @@ type MovieData = {
 
 const SearchResults: React.FC = () => {
 
-  const searchParams = useSearchParams()
+  const searchParams: ReadonlyURLSearchParams = useSearchParams()
 
-  const page = getPage()
-  const searchQuery = searchParams.get('search')
+  const page: string = getPage()
+  const searchQuery: string | null = searchParams.get('search')
 
   const { isLoading, error, data } = useQuery({
     queryKey: [`search_${searchQuery}`],
