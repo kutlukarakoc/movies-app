@@ -1,15 +1,17 @@
 'use client'
 
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+import { URLSearchParams } from 'next/dist/compiled/@edge-runtime/primitives/url'
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context'
 
 const Pagination: React.FC<{ page: string, totalPages: number | undefined }> = ({ page, totalPages }) => {
 
-  const router = useRouter()
-  const pathname = usePathname()
+  const router: AppRouterInstance = useRouter()
+  const pathname: string = usePathname()
   const searchParams: any = useSearchParams()!
 
-  const createQueryString = (name: string, value: string) => {
-    const params = new URLSearchParams(searchParams)
+  const createQueryString = (name: string, value: string): string => {
+    const params: URLSearchParams = new URLSearchParams(searchParams)
     params.set(name, value)
 
     return params.toString()
