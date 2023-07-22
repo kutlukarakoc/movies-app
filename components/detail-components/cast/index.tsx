@@ -28,7 +28,7 @@ const Cast: React.FC<{ id: string, reqUrl: string }> = ({ id, reqUrl }) => {
     return <CastLoading />
   }
 
-  if (!error && data) {
+  if (!error && data && data.length) {
     return (
       <section className='section-container'>
         <h3 className='text-xl mb-5'>Cast</h3>
