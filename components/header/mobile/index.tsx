@@ -10,7 +10,7 @@ const Mobile = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false)
   const [transform, setTransform] = useState<string>('-translate-x-[400px]')
 
-  const pathname = usePathname()
+  const pathname: string = usePathname()
 
   useEffect(() => {
     showMenu ? setTransform('translate-x-0') : setTransform('-translate-x-[400px]')
