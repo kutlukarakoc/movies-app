@@ -14,7 +14,7 @@ const Right: React.FC = () => {
   const showModal: string | null = searchParams.get('search-modal')
 
   const createQueryString = (name: string, value: string): URLSearchParams => {
-    const params = new URLSearchParams(searchParams.toString())
+    const params: URLSearchParams = new URLSearchParams(searchParams.toString())
     params.set(name, value)
 
     return params
