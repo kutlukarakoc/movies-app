@@ -1,8 +1,8 @@
 'use client'
 
 import GridCards from '@/components/grid-cards'
+import GridCardsLoading from '@/components/grid-cards/loading'
 import Card from '@/components/movie-serie-card'
-import ResultsLoading from './loading'
 import Pagination from '@/components/pagination'
 import { useQuery } from '@tanstack/react-query'
 import { axiosGet } from '@/public/utils/fetch'
@@ -35,7 +35,7 @@ const SearchResults: React.FC = () => {
   })
 
   if (isLoading) {
-    return <ResultsLoading />
+    return <GridCardsLoading />
   }
 
   if (!error && data && data.results.length) {
