@@ -12,11 +12,14 @@ body {
   background-color: #141414;
 }
 
-.swal-close-button, .swal-close-button:focus {
-  box-shadow: none !important;
-  color: #E5E5E5 !important;
-  outline: none;
-  font-size: 2em;
+.swiper-pagination-bullet {
+  background: #E5E5E5 !important;
+  opacity: 0.7 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #960000 !important;
+  opacity: 1 !important;
 }
 
 .main-layout{
