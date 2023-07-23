@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from 'react'
 
 const SearchType: React.FC<{ searchType: string, setSearchType: Dispatch<SetStateAction<string>> }> = ({ searchType, setSearchType }) => {
 
-  const searchTypes = ['movie', 'serie', 'person']
+  const searchTypes = ['movie', 'serie']
 
   return (
     <div className='flex justify-center gap-x-5 mt-4'>
