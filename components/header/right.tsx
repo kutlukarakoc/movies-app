@@ -1,6 +1,6 @@
 'use client'
 
-import SearchModal from '../modal/search'
+import SearchModal from '../search'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useSearchParams, usePathname } from 'next/navigation'
