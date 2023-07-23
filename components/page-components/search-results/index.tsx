@@ -26,10 +26,13 @@ const SearchResults: React.FC = () => {
   const page: string = getPage()
   const searchQuery: string | null = searchParams.get('search')
 
+  let searchType: string | null = searchParams.get('type')
+
   const { isLoading, error, data } = useQuery({
-    queryKey: [`search_${searchQuery}`],
+    queryKey: [`search_${searchType}_${searchQuery}`],
     queryFn: async () => {
-      const { data }: AxiosResponse<MovieData> = await axiosGet(`/search/movie?query=${searchQuery}`, page)
+      // /search/tv
+      const { data }: AxiosResponse<MovieData> = await axiosGet(`/search/${searchType === 'serie' ? 'tv' : searchType}?query=${searchQuery}`, page)
       return data
     },
     refetchOnWindowFocus: false
@@ -54,7 +57,7 @@ const SearchResults: React.FC = () => {
           {data?.results.map((movie: Movie) => (
             <Card
               key={movie.id}
-              url={`/movie/${movie.id}`}
+              url={`/${searchType}/${movie.id}`}
               imgSrc={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               title={movie.title}
               averageVote={movie.vote_average}
