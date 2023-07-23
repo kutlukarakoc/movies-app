@@ -8,7 +8,7 @@ const Genres: React.FC<{ genres: Genre[] }> = ({ genres }) => {
         <Link
           key={genre.id}
           href={`/${genre.id}`}
-          className='bg-accent text-xxs md:text-md w-36 h-10 md:h-12 flex justify-center items-center rounded-md cursor-pointer hover:bg-accent-light'>
+          className='bg-accent text-xxs md:text-md w-36 h-10 md:h-12 flex justify-center items-center rounded-sm cursor-pointer hover:bg-accent-light'>
           {genre.name}
         </Link>
       ))}

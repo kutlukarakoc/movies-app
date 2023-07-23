@@ -32,7 +32,7 @@ const Modal: React.FC<Modal> = ({ children, showCloseButton = true }) => {
 
   return (
     <div
-      className='backdrop-blur-sm bg-overlay opacity-90 fixed z-40 inset-0 overflow-y-auto flex items-center justify-center rounded-md'
+      className='backdrop-blur-sm bg-overlay opacity-90 fixed z-40 inset-0 overflow-y-auto flex items-center justify-center rounded-sm'
       role="dialog"
       aria-modal="true"
     >

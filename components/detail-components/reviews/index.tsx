@@ -43,7 +43,7 @@ const Reviews: React.FC<{ id: string, reqUrl: string }> = ({ id, reqUrl }) => {
                       : <Image alt='movies-app' fill unoptimized src={`https://image.tmdb.org/t/p/w200${review.author_details.avatar_path}`} className='rounded-full' />
                   }
                 </div>
-                <div className='bg-nero p-3 w-[550px] min-h-[120px] rounded-md'>
+                <div className='bg-nero p-3 w-[550px] min-h-[120px] rounded-sm'>
                   <div className='flex items-center justify-between gap-4 mb-4'>
                     <p className='text-xs'>@{review.author}</p>
                     <span className='text-xxs'>{review.created_at.split('T')[0]}</span>
