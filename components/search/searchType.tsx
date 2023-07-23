@@ -6,8 +6,8 @@ const SearchType: React.FC<{ searchType: string, setSearchType: Dispatch<SetStat
 
   return (
     <div className='flex justify-center gap-x-5 mt-4'>
-      {searchTypes.map((type: string) => (
-        <div>
+      {searchTypes.map((type: string, index) => (
+        <div key={index}>
           <input
             className='sr-only peer'
             id={type}
