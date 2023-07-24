@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import SlideLoading from '../../home/slides/loading'
+import ActedLoading from './loading'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useQuery } from '@tanstack/react-query'
 import { AxiosResponse } from 'axios'
@@ -22,7 +22,7 @@ const ActedSeries: React.FC<{ personId: string }> = ({ personId }) => {
   })
 
   if (isLoading) {
-    return <SlideLoading />
+    return <ActedLoading />
   }
 
   if (!error && data && data.length) {
@@ -44,7 +44,7 @@ const ActedSeries: React.FC<{ personId: string }> = ({ personId }) => {
               return (
                 <SwiperSlide key={serie.id} style={{ width: '250px', height: '425px' }}>
                   <div className='w-full max-w-[250px]'>
-                    <Link key={serie.id} href={`serie/${serie.id}`}>
+                    <Link key={serie.id} href={`/serie/${serie.id}`}>
                       <Image
                         src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
                         alt={serie.name}

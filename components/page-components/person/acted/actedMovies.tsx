@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import SlideLoading from '../../home/slides/loading'
+import ActedLoading from './loading'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useQuery } from '@tanstack/react-query'
 import { AxiosResponse } from 'axios'
@@ -22,7 +22,7 @@ const ActedMovies: React.FC<{personId: string}> = ({ personId}) => {
   })
 
   if (isLoading) {
-    return <SlideLoading />
+    return <ActedLoading />
   }
 
   if (!error && data && data.length) {
@@ -44,7 +44,7 @@ const ActedMovies: React.FC<{personId: string}> = ({ personId}) => {
               return (
                 <SwiperSlide key={movie.id} style={{ width: '250px', height: '425px' }}>
                   <div className='w-full max-w-[250px]'>
-                    <Link key={movie.id} href={`movie/${movie.id}`}>
+                    <Link key={movie.id} href={`/movie/${movie.id}`}>
                       <Image
                         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                         alt={movie.title}
