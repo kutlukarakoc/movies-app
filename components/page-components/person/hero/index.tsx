@@ -1,5 +1,6 @@
 'use client'
 
+import Loading from './loading'
 import Images from './images'
 import { calculateAge } from '@/public/utils/calculateAge'
 import { useQuery } from '@tanstack/react-query'
@@ -19,10 +20,10 @@ const PersonHero: React.FC<{ personId: string }> = ({ personId }) => {
   })
 
   if (isLoading) {
-    return <div>loading...</div>
+    return <Loading />
   }
 
-  if (!error && data && data.name) {
+  if (!error && data) {
     return (
       <section className='section-container mt-14'>
         <div className='flex flex-col md:flex-row justify-center items-center gap-x-32'>
