@@ -35,7 +35,7 @@ const Images: React.FC<{ personId: string, name: string }> = ({ personId, name }
         modules={[Pagination]}
         className='personImages w-[325px] h-[487px] md:w-[384px] md:h-[576px]'
       >
-        {data?.map((image: Profile) => (
+        {data?.slice(0,10).map((image: Profile) => (
           <SwiperSlide key={image.file_path}>
             <Image
               src={`https://image.tmdb.org/t/p/w500${image.file_path}`}
