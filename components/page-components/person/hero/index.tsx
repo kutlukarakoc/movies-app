@@ -1,5 +1,6 @@
 'use client'
 
+import Socials from './social'
 import Loading from './loading'
 import Images from './images'
 import { calculateAge } from '@/public/utils/calculateAge'
@@ -38,6 +39,7 @@ const PersonHero: React.FC<{ personId: string }> = ({ personId }) => {
               : <h5 className='text-sm sm:text-md'>Deathday: {data.deathday}</h5>
             }
             <h5 className='text-sm sm:text-md'>Place of Birth: {data.place_of_birth}</h5>
+            <Socials personId={personId} />
           </div>
         </div>
         <h6 className='text-sm indent-4 mt-14'>{data.biography}</h6>

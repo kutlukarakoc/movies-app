@@ -9,11 +9,16 @@ const Loading: React.FC = () => {
           <div className='w-36 h-5 sm:w-40 sm:h-6 rounded-md mb-2 bg-zambezi'></div>
           <div className='w-32 h-5 sm:w-36 sm:h-6 rounded-md mb-2 bg-zambezi'></div>
           <div className='w-72 h-5 sm:w-80 sm:h-6 rounded-md mb-2 bg-zambezi'></div>
+          <div className='mt-10 flex flex-col justify-center items-start gap-y-2 animate-pulse'>
+            {Array.from({ length: 3 }).map((_, index) => (
+              <div key={index} className='w-32 h-5 rounded-md bg-zambezi'></div>
+            ))}
+          </div>
         </div>
       </div>
       <div className='flex flex-col gap-y-2 items-center'>
-        {Array.from({ length: 3 }).map((_, index) => (
-          <div className='w-11/12 h-5 rounded-md bg-zambezi'></div>
+        {Array.from({ length: 5 }).map((_, index) => (
+          <div key={index} className='w-11/12 h-5 rounded-md bg-zambezi'></div>
         ))}
       </div>
     </section>
