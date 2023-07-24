@@ -2,7 +2,7 @@
 
 import Socials from './social'
 import Loading from './loading'
-import Images from './images'
+import Images from './person-pictures/images'
 import { calculateAge } from '@/public/utils/calculateAge'
 import { useQuery } from '@tanstack/react-query'
 import { axiosGet } from '@/public/utils/fetch'
