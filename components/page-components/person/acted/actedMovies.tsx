@@ -9,7 +9,7 @@ import { AxiosResponse } from 'axios'
 import { axiosGet } from '@/public/utils/fetch'
 import { PersonActedMovies, PersonActedMoviesCast } from '@/types/personActedMovies'
 
-const ActedMovies: React.FC<{personId: string}> = ({ personId}) => {
+const ActedMovies: React.FC<{ personId: string }> = ({ personId }) => {
 
   const { isLoading, error, data } = useQuery({
     queryKey: [`acted_movies_${personId}`],
