@@ -20,7 +20,7 @@ const Menu: React.FC<Menu> = ({ transform, setShowMenu }) => {
       <div className='w-full flex justify-center'>
         <Logo />
       </div>
-      <XMarkIcon className='w-5 h-5 text-secondary absolute top-3 right-2 cursor-pointer' onClick={() => setShowMenu(false)} />
+      <XMarkIcon className='w-7 h-7 text-secondary absolute top-4 right-4 cursor-pointer' onClick={() => setShowMenu(false)} />
     </div>
   )
 }
