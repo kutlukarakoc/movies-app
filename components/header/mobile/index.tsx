@@ -8,12 +8,12 @@ import { usePathname } from 'next/navigation'
 const Mobile: React.FC = () => {
 
   const [showMenu, setShowMenu] = useState<boolean>(false)
-  const [transform, setTransform] = useState<string>('-translate-x-[400px]')
+  const [transform, setTransform] = useState<string>('-translate-x-[650px]')
 
   const pathname: string = usePathname()
 
   useEffect(() => {
-    showMenu ? setTransform('translate-x-0') : setTransform('-translate-x-[400px]')
+    showMenu ? setTransform('translate-x-0') : setTransform('-translate-x-[650px]')
 
     return () => setTransform('translate-x-0')
   }, [showMenu])
