@@ -1,7 +1,7 @@
 'use client'
 
 import GridCards from '@/components/grid-cards'
-import GridCardsLoading from '../grid-cards/loading'
+import GridCardsLoading from '../../grid-cards/loading'
 import Card from '@/components/movie-serie-card'
 import Pagination from '@/components/pagination'
 import { useQuery } from '@tanstack/react-query'
@@ -17,7 +17,7 @@ interface MovieData {
   total_results: number
 }
 
-const AllMoviesSeries: React.FC<{ title: string, reqUrl: string }> = ({ title, reqUrl }) => {
+const AllMoviesSeriesContainer: React.FC<{ title: string, reqUrl: string }> = ({ title, reqUrl }) => {
 
   const page: string = getPage()
   
@@ -68,4 +68,4 @@ const AllMoviesSeries: React.FC<{ title: string, reqUrl: string }> = ({ title, r
   )
 }
 
-export default AllMoviesSeries
+export default AllMoviesSeriesContainer
