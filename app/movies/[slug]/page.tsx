@@ -1,8 +1,8 @@
-import MoviesWithSlug from '@/components/page-components/movies/slugs'
+import MoviesWithSlugContainer from '@/components/page-components/movies/slugs'
 
 const MoviesSlugPage: React.FC<{ params: { slug: string } }> = ({ params }) => {
   return (
-    <MoviesWithSlug slug={params.slug} />
+    <MoviesWithSlugContainer slug={params.slug} />
   )
 }
 

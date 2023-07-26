@@ -17,7 +17,7 @@ interface MovieData {
   total_results: number
 }
 
-const MoviesWithSlug: React.FC<{ slug: string }> = ({ slug }) => {
+const MoviesWithSlugContainer: React.FC<{ slug: string }> = ({ slug }) => {
 
   const page: string = getPage()
 
@@ -68,4 +68,4 @@ const MoviesWithSlug: React.FC<{ slug: string }> = ({ slug }) => {
   )
 }
 
-export default MoviesWithSlug
+export default MoviesWithSlugContainer
