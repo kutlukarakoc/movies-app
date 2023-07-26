@@ -32,7 +32,7 @@ const SearchModal: React.FC = () => {
 
   return (
     <Modal showCloseButton={false}>
-      <form className='relative w-full max-w-sm mx-auto h-12' onSubmit={handleSubmit}>
+      <form className='relative w-full max-w-sm mx-auto h-12 px-4 sm:px-0' onSubmit={handleSubmit}>
         <input
           type='text'
           placeholder='search'
@@ -42,7 +42,7 @@ const SearchModal: React.FC = () => {
           ref={inputRef}
         />
         <button type='submit' className='border-none outline-none'>
-          <Image src={searchImg} alt='movies' className='absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5' />
+          <Image src={searchImg} alt='movies' className='absolute right-8 sm:right-4 top-1/2 -translate-y-1/2 w-5 h-5' />
         </button>
 
         <SearchType searchType={searchType} setSearchType={setSearchType} />
