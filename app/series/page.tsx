@@ -1,8 +1,8 @@
-import AllMoviesSeries from '@/components/all-movies-series'
+import AllMoviesSeriesContainer from "@/components/page-components/all-movies-series"
 
 const Movies: React.FC = () => {
   return (
-    <AllMoviesSeries title='serie' reqUrl='/tv/popular' />
+    <AllMoviesSeriesContainer title='serie' reqUrl='/tv/popular' />
   )
 }
 
