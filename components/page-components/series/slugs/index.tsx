@@ -17,7 +17,7 @@ interface SerieData {
   total_results: number
 }
 
-const SeriesWithSlug: React.FC<{ slug: string }> = ({ slug }) => {
+const SeriesWithSlugContainer: React.FC<{ slug: string }> = ({ slug }) => {
 
   const page: string = getPage()
 
@@ -73,4 +73,4 @@ const SeriesWithSlug: React.FC<{ slug: string }> = ({ slug }) => {
   )
 }
 
-export default SeriesWithSlug
+export default SeriesWithSlugContainer

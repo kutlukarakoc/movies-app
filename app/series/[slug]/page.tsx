@@ -1,9 +1,9 @@
-import SeriesWithSlug from '@/components/page-components/series/slugs'
+import SeriesWithSlugContainer from '@/components/page-components/series/slugs'
 
-const SeriesSlugPage: React.FC<{ params: { slug: string } }> = ({ params }) => {
+const SeriesWithSlug: React.FC<{ params: { slug: string } }> = ({ params }) => {
   return (
-    <SeriesWithSlug slug={params.slug} />
+    <SeriesWithSlugContainer slug={params.slug} />
   )
 }
 
-export default SeriesSlugPage
+export default SeriesWithSlug
