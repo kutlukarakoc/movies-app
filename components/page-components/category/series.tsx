@@ -62,7 +62,7 @@ const SeriesRelatedGenre: React.FC<{ genreId: string }> = ({ genreId }) => {
 
   return (
     <section className='section-container mt-14'>
-      <h2 className='text-center text-2xl'>Something went wrong. Please try again later.</h2>
+      <h2 className='text-center text-2xl'>There are no series in this category.</h2>
     </section>
   )
 }

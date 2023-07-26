@@ -21,8 +21,6 @@ const MoviesRelatedGenre: React.FC<{ genreId: string }> = ({ genreId }) => {
 
   const page: string = getPage()
 
-  console.log('page',page)
-
   const { isLoading, error, data } = useQuery({
     queryKey: [`all_${genreId}_movies_page_${page}`],
     queryFn: async () => {
@@ -64,7 +62,7 @@ const MoviesRelatedGenre: React.FC<{ genreId: string }> = ({ genreId }) => {
 
   return (
     <section className='section-container mt-14'>
-      <h2 className='text-center text-2xl'>Something went wrong. Please try again later.</h2>
+      <h2 className='text-center text-2xl'>There are no movies in this category.</h2>
     </section>
   )
 }
