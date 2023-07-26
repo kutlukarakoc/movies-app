@@ -19,7 +19,7 @@ interface MovieData {
   total_results: number
 }
 
-const SearchResults: React.FC = () => {
+const SearchResultsContainer: React.FC = () => {
 
   const searchParams: ReadonlyURLSearchParams = useSearchParams()
 
@@ -76,4 +76,4 @@ const SearchResults: React.FC = () => {
   )
 }
 
-export default SearchResults
+export default SearchResultsContainer
