@@ -10,7 +10,7 @@ interface Menu {
 
 const Menu: React.FC<Menu> = ({ transform, setShowMenu }) => {
   return (
-    <div className={`absolute z-50 left-0 top-0 w-8/12 max-w-sm py-6 bg-primary text-secondary text-sm font-medium shadow-accentshd rounded-ee-lg transition-transform sm:hidden ${transform}`}>
+    <div className={`absolute z-50 left-0 top-0 w-full h-full py-20 bg-primary text-secondary text-sm font-medium shadow-accentshd transition-transform sm:hidden ${transform}`}>
       <div className='flex flex-col justify-center items-start gap-5 flex-1 h-full py-16 px-10'>
         <Link href='/'>Home</Link>
         <Link href='/movies'>Movies</Link>
