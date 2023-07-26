@@ -35,15 +35,15 @@ const Reviews: React.FC<{ id: string, reqUrl: string }> = ({ id, reqUrl }) => {
           {data?.slice(0, reviewsSlice).map((review: Result) => {
             const avatar: string | undefined = review.author_details.avatar_path
             return (
-              <div key={review.id} className='flex items-start justify-center gap-8'>
-                <div className='w-16 h-16 rounded-full relative bg-zambezi'>
+              <div key={review.id} className='flex items-start justify-center gap-8 w-full'>
+                <div className='min-w-[40px] min-h-[40px] w-10 h-10 sm:w-16 sm:h-16 rounded-full relative bg-zambezi'>
                   {
                     !avatar || avatar.includes('gravatar')
-                      ? <div className='w-full h-full flex items-center justify-center'><UserIcon className='w-10 h-10 rounded-full' /></div>
+                      ? <div className='w-full h-full flex items-center justify-center'><UserIcon className='w-5 h-5 sm:w-10 sm:h-10 rounded-full' /></div>
                       : <Image alt='movies-app' fill unoptimized src={`https://image.tmdb.org/t/p/w200${review.author_details.avatar_path}`} className='rounded-full' />
                   }
                 </div>
-                <div className='bg-nero p-3 w-[550px] min-h-[120px] rounded-sm'>
+                <div className='bg-nero p-3 min-w-[221px] max-w-[271px] w-[271px] sm:max-w-[550px] sm:w-[550px] min-h-[120px] rounded-sm'>
                   <div className='flex items-center justify-between gap-4 mb-4'>
                     <p className='text-xs'>@{review.author}</p>
                     <span className='text-xxs'>{review.created_at.split('T')[0]}</span>
