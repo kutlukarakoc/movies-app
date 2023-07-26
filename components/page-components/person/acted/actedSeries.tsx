@@ -25,6 +25,8 @@ const ActedSeries: React.FC<{ personId: string }> = ({ personId }) => {
     return <ActedLoading />
   }
 
+  console.log('data',data)
+
   if (!error && data && data.length) {
     return (
       <section className='container mx-auto px-4 sm:px-0 mb-10'>
@@ -40,7 +42,7 @@ const ActedSeries: React.FC<{ personId: string }> = ({ personId }) => {
           className='acted-movies h-[425px]'
         >
           {data.map((serie: PersonActedSeriesCast) => {
-            if (serie.poster_path) {
+            if (serie.poster_path && serie.character !== '' && !serie.character.toLowerCase().includes('self')) {
               return (
                 <SwiperSlide key={serie.id} style={{ width: '250px', height: '425px' }}>
                   <div className='w-full max-w-[250px]'>
