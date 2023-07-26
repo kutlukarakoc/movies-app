@@ -25,8 +25,6 @@ const ActedSeries: React.FC<{ personId: string }> = ({ personId }) => {
     return <ActedLoading />
   }
 
-  console.log('data',data)
-
   if (!error && data && data.length) {
     return (
       <section className='container mx-auto px-4 sm:px-0 mb-10'>
