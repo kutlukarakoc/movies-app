@@ -26,6 +26,10 @@ body {
   min-height: calc(100% - 80px - 272px);
 }
 
+input, button {
+  outline: none;
+}
+
 @media screen and (max-width: 640px) {
   .main-layout{
     min-height: calc(100% - 80px - 390px);
