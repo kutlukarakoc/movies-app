@@ -32,7 +32,7 @@ const SearchModal: React.FC = () => {
 
   return (
     <Modal showCloseButton={false}>
-      <form className='relative w-full max-w-sm mx-auto h-12 px-4 sm:px-0' onSubmit={handleSubmit}>
+      <form className='relative w-80 sm:w-96 mx-auto h-12 px-4 sm:px-0' onSubmit={handleSubmit}>
         <input
           type='text'
           placeholder='search'
