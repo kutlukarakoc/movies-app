@@ -6,7 +6,6 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { MutableRefObject } from 'react'
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context'
 
-
 interface Modal {
   children: JSX.Element
   showCloseButton: boolean
@@ -32,14 +31,14 @@ const Modal: React.FC<Modal> = ({ children, showCloseButton = true }) => {
 
   return (
     <div
-      className='backdrop-blur-sm bg-overlay opacity-90 fixed z-40 inset-0 overflow-y-auto flex items-center justify-center rounded-sm'
+      className='backdrop-blur-sm bg-overlay opacity-95 fixed z-40 inset-0 overflow-y-auto flex items-center justify-center rounded-sm'
       role="dialog"
       aria-modal="true"
     >
-      <div className='w-full relative max-w-sm md:max-w-md lg:max-w-lg' ref={modalRef}>
+      <div className='w-max relative flex justify-center items-center' ref={modalRef}>
         {showCloseButton &&
           <button type='button' onClick={() => router.back()}>
-            <XMarkIcon className='absolute z-50 top-0 right-0 w-6 h-6 text-secondary' />
+            <XMarkIcon className='absolute z-50 right-2 top-2 w-6 h-6 text-secondary hover:text-white'/>
           </button>
         }
         {children}
